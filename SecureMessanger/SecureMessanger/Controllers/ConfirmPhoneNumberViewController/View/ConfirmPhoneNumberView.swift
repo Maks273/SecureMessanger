@@ -13,10 +13,20 @@ class ConfirmPhoneNumberView: UIView {
     
     @IBOutlet weak var numberLabel: UILabel!
     
+    //MARK: - Variables
+    
+    var nextAction: ((_ code: String) -> ())?
+    
     //MARK: - Override
 
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    //MARK: - IBActions
+    
+    @IBAction private func nextButtonPressed(_ sender: Any) {
+        nextAction?("")
     }
     
     //MARK: - Helper

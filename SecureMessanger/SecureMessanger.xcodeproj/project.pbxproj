@@ -24,6 +24,10 @@
 		2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16D327E4EA550089E504 /* ConfirmPhoneNumberViewController.swift */; };
 		2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */; };
 		2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16D727E4EA630089E504 /* ConfirmPhoneNumberView.swift */; };
+		2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */; };
+		2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */; };
+		2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */; };
+		2DC3B7C627E76F6B00B5DC24 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C527E76F6B00B5DC24 /* UITextView+Extension.swift */; };
 		609707F2E176BA6E81DA281B /* Pods_SecureMessanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +51,10 @@
 		2D5F16D327E4EA550089E504 /* ConfirmPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPhoneNumberViewController.xib; sourceTree = "<group>"; };
 		2D5F16D727E4EA630089E504 /* ConfirmPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberView.swift; sourceTree = "<group>"; };
+		2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsViewController.xib; sourceTree = "<group>"; };
+		2DC3B7C527E76F6B00B5DC24 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecureMessanger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E424E6E241B0335E9F31BAE /* Pods-SecureMessanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMessanger.release.xcconfig"; path = "Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger.release.xcconfig"; sourceTree = "<group>"; };
 		8980E4B84B752C2E2341800B /* Pods-SecureMessanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMessanger.debug.xcconfig"; path = "Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 		2D5F16B027E4CE940089E504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DC3B7BA27E7344900B5DC24 /* ProfileSettingsViewController */,
 				2D5F16D027E4EA240089E504 /* ConfirmPhoneNumberViewController */,
 				2D5F16C527E4D9D40089E504 /* LoginViewController */,
 				2D5F16B427E4CFBA0089E504 /* WelcomeViewController */,
@@ -122,6 +131,7 @@
 			children = (
 				2D5F16BD27E4D18B0089E504 /* UIView+Extension.swift */,
 				2D5F16CE27E4E7F30089E504 /* UIViewController+Extension.swift */,
+				2DC3B7C527E76F6B00B5DC24 /* UITextView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,6 +237,32 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		2DC3B7BA27E7344900B5DC24 /* ProfileSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DC3B7BC27E7347B00B5DC24 /* View */,
+				2DC3B7BB27E7347400B5DC24 /* Controller */,
+			);
+			path = ProfileSettingsViewController;
+			sourceTree = "<group>";
+		};
+		2DC3B7BB27E7347400B5DC24 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */,
+				2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2DC3B7BC27E7347B00B5DC24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		853CC5ABA1271FE6C0ECD3D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +343,7 @@
 				2D5F16C927E4D9E20089E504 /* LoginViewController.xib in Resources */,
 				2D5F16A927E4CD3B0089E504 /* LaunchScreen.storyboard in Resources */,
 				2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */,
+				2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */,
 				2D5F16A627E4CD3B0089E504 /* Assets.xcassets in Resources */,
 				2D5F16BA27E4CFF90089E504 /* WelcomeViewController.xib in Resources */,
 			);
@@ -364,15 +401,18 @@
 				2D5F16C127E4D6A70089E504 /* RootViewProtocol.swift in Sources */,
 				2D5F16B927E4CFF90089E504 /* WelcomeViewController.swift in Sources */,
 				2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */,
+				2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */,
 				2D5F16CD27E4DA040089E504 /* LoginView.swift in Sources */,
 				2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */,
 				2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */,
 				2D5F16C827E4D9E20089E504 /* LoginViewController.swift in Sources */,
+				2DC3B7C627E76F6B00B5DC24 /* UITextView+Extension.swift in Sources */,
 				2D5F16BE27E4D18B0089E504 /* UIView+Extension.swift in Sources */,
 				2D5F16BC27E4D0220089E504 /* WelcomeView.swift in Sources */,
 				2D5F16CF27E4E7F30089E504 /* UIViewController+Extension.swift in Sources */,
 				2D5F16C427E4D9720089E504 /* NavigationService.swift in Sources */,
 				2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */,
+				2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
