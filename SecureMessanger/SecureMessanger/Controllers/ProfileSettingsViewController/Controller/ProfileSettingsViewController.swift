@@ -36,8 +36,9 @@ class ProfileSettingsViewController: UIViewController {
         rootView?.setupPhoneNumber(phoneNumber)
         rootView?.saveAction = { [weak self] in
             guard let self = self else { return }
-            
-            
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            sceneDelegate?.window?.rootViewController = MainTabBarViewController()
+            sceneDelegate?.window?.makeKeyAndVisible()
         }
     }
 }
