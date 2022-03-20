@@ -21,6 +21,7 @@ struct User: Codable {
 
 extension User {
     static let vladimir = User(name: "Vladimir Zelenskij", imageURL: "https://uk.wikipedia.org/wiki/Стів_Джобс#/media/Файл:Steve_Jobs_Headshot_2010-CROP.jpg")
+    static let data: [User] = [vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir]
 }
 
 extension Chat {

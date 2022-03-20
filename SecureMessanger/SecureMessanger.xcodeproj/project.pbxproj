@@ -28,6 +28,8 @@
 		2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */; };
 		2D72CF8D27E78978002D2924 /* ContactsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */; };
 		2D72CF9027E78987002D2924 /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8F27E78987002D2924 /* ContactsListView.swift */; };
+		2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF9227E78F40002D2924 /* ContactListTableViewCell.swift */; };
+		2D72CF9527E78F40002D2924 /* ContactListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF9327E78F40002D2924 /* ContactListTableViewCell.xib */; };
 		2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */; };
 		2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */; };
 		2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */; };
@@ -65,6 +67,8 @@
 		2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsListViewController.xib; sourceTree = "<group>"; };
 		2D72CF8F27E78987002D2924 /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
+		2D72CF9227E78F40002D2924 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
+		2D72CF9327E78F40002D2924 /* ContactListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListTableViewCell.xib; sourceTree = "<group>"; };
 		2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsViewController.xib; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 		2D72CF8827E78956002D2924 /* ContactsListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2D72CF9127E78F2C002D2924 /* TableViewCells */,
 				2D72CF8E27E7897B002D2924 /* View */,
 				2D72CF8927E78968002D2924 /* Controller */,
 			);
@@ -285,6 +290,15 @@
 				2D72CF8F27E78987002D2924 /* ContactsListView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2D72CF9127E78F2C002D2924 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2D72CF9227E78F40002D2924 /* ContactListTableViewCell.swift */,
+				2D72CF9327E78F40002D2924 /* ContactListTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		2DC3B7BA27E7344900B5DC24 /* ProfileSettingsViewController */ = {
@@ -434,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D72CF9527E78F40002D2924 /* ContactListTableViewCell.xib in Resources */,
 				2D5F16C927E4D9E20089E504 /* LoginViewController.xib in Resources */,
 				2DC3B7D527E778BE00B5DC24 /* ChatListTableViewCell.xib in Resources */,
 				2D5F16A927E4CD3B0089E504 /* LaunchScreen.storyboard in Resources */,
@@ -517,6 +532,7 @@
 				2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */,
 				2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */,
 				2DC3B7CF27E7769100B5DC24 /* ChatListView.swift in Sources */,
+				2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
