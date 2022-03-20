@@ -16,6 +16,15 @@
 		2D5F16BC27E4D0220089E504 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16BB27E4D0220089E504 /* WelcomeView.swift */; };
 		2D5F16BE27E4D18B0089E504 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16BD27E4D18B0089E504 /* UIView+Extension.swift */; };
 		2D5F16C127E4D6A70089E504 /* RootViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16C027E4D6A70089E504 /* RootViewProtocol.swift */; };
+		2D5F16C427E4D9720089E504 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16C327E4D9720089E504 /* NavigationService.swift */; };
+		2D5F16C827E4D9E20089E504 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16C627E4D9E20089E504 /* LoginViewController.swift */; };
+		2D5F16C927E4D9E20089E504 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F16C727E4D9E20089E504 /* LoginViewController.xib */; };
+		2D5F16CD27E4DA040089E504 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16CC27E4DA040089E504 /* LoginView.swift */; };
+		2D5F16CF27E4E7F30089E504 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16CE27E4E7F30089E504 /* UIViewController+Extension.swift */; };
+		2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16D327E4EA550089E504 /* ConfirmPhoneNumberViewController.swift */; };
+		2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */; };
+		2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16D727E4EA630089E504 /* ConfirmPhoneNumberView.swift */; };
+		609707F2E176BA6E81DA281B /* Pods_SecureMessanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +39,17 @@
 		2D5F16BB27E4D0220089E504 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		2D5F16BD27E4D18B0089E504 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		2D5F16C027E4D6A70089E504 /* RootViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewProtocol.swift; sourceTree = "<group>"; };
+		2D5F16C327E4D9720089E504 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
+		2D5F16C627E4D9E20089E504 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2D5F16C727E4D9E20089E504 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		2D5F16CC27E4DA040089E504 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2D5F16CE27E4E7F30089E504 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		2D5F16D327E4EA550089E504 /* ConfirmPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberViewController.swift; sourceTree = "<group>"; };
+		2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPhoneNumberViewController.xib; sourceTree = "<group>"; };
+		2D5F16D727E4EA630089E504 /* ConfirmPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberView.swift; sourceTree = "<group>"; };
+		51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecureMessanger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E424E6E241B0335E9F31BAE /* Pods-SecureMessanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMessanger.release.xcconfig"; path = "Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger.release.xcconfig"; sourceTree = "<group>"; };
+		8980E4B84B752C2E2341800B /* Pods-SecureMessanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMessanger.debug.xcconfig"; path = "Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				609707F2E176BA6E81DA281B /* Pods_SecureMessanger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +69,8 @@
 			children = (
 				2D5F169B27E4CD390089E504 /* SecureMessanger */,
 				2D5F169A27E4CD390089E504 /* Products */,
+				88A03C93C720F2644B4AE295 /* Pods */,
+				853CC5ABA1271FE6C0ECD3D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +85,7 @@
 		2D5F169B27E4CD390089E504 /* SecureMessanger */ = {
 			isa = PBXGroup;
 			children = (
+				2D5F16C227E4D96A0089E504 /* Services */,
 				2D5F16BF27E4D6920089E504 /* Protocols */,
 				2D5F16B327E4CEB10089E504 /* Resources */,
 				2D5F16B227E4CEA80089E504 /* Extensions */,
@@ -79,6 +103,8 @@
 		2D5F16B027E4CE940089E504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D5F16D027E4EA240089E504 /* ConfirmPhoneNumberViewController */,
+				2D5F16C527E4D9D40089E504 /* LoginViewController */,
 				2D5F16B427E4CFBA0089E504 /* WelcomeViewController */,
 			);
 			path = Controllers;
@@ -95,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				2D5F16BD27E4D18B0089E504 /* UIView+Extension.swift */,
+				2D5F16CE27E4E7F30089E504 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -140,6 +167,83 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		2D5F16C227E4D96A0089E504 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F16C327E4D9720089E504 /* NavigationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2D5F16C527E4D9D40089E504 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F16CB27E4D9F80089E504 /* View */,
+				2D5F16CA27E4D9E80089E504 /* Controller */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		2D5F16CA27E4D9E80089E504 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F16C627E4D9E20089E504 /* LoginViewController.swift */,
+				2D5F16C727E4D9E20089E504 /* LoginViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D5F16CB27E4D9F80089E504 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F16CC27E4DA040089E504 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D5F16D027E4EA240089E504 /* ConfirmPhoneNumberViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F16D227E4EA430089E504 /* Controller */,
+				2D5F16D127E4EA390089E504 /* View */,
+			);
+			path = ConfirmPhoneNumberViewController;
+			sourceTree = "<group>";
+		};
+		2D5F16D127E4EA390089E504 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F16D727E4EA630089E504 /* ConfirmPhoneNumberView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D5F16D227E4EA430089E504 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F16D327E4EA550089E504 /* ConfirmPhoneNumberViewController.swift */,
+				2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		853CC5ABA1271FE6C0ECD3D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88A03C93C720F2644B4AE295 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8980E4B84B752C2E2341800B /* Pods-SecureMessanger.debug.xcconfig */,
+				6E424E6E241B0335E9F31BAE /* Pods-SecureMessanger.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +251,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D5F16AD27E4CD3B0089E504 /* Build configuration list for PBXNativeTarget "SecureMessanger" */;
 			buildPhases = (
+				804462563785119D75695DBA /* [CP] Check Pods Manifest.lock */,
 				2D5F169527E4CD390089E504 /* Sources */,
 				2D5F169627E4CD390089E504 /* Frameworks */,
 				2D5F169727E4CD390089E504 /* Resources */,
+				E11BAA9A5527EC27CFB8A6BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,13 +304,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D5F16C927E4D9E20089E504 /* LoginViewController.xib in Resources */,
 				2D5F16A927E4CD3B0089E504 /* LaunchScreen.storyboard in Resources */,
+				2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */,
 				2D5F16A627E4CD3B0089E504 /* Assets.xcassets in Resources */,
 				2D5F16BA27E4CFF90089E504 /* WelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		804462563785119D75695DBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SecureMessanger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E11BAA9A5527EC27CFB8A6BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2D5F169527E4CD390089E504 /* Sources */ = {
@@ -214,9 +364,15 @@
 				2D5F16C127E4D6A70089E504 /* RootViewProtocol.swift in Sources */,
 				2D5F16B927E4CFF90089E504 /* WelcomeViewController.swift in Sources */,
 				2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */,
+				2D5F16CD27E4DA040089E504 /* LoginView.swift in Sources */,
+				2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */,
 				2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */,
+				2D5F16C827E4D9E20089E504 /* LoginViewController.swift in Sources */,
 				2D5F16BE27E4D18B0089E504 /* UIView+Extension.swift in Sources */,
 				2D5F16BC27E4D0220089E504 /* WelcomeView.swift in Sources */,
+				2D5F16CF27E4E7F30089E504 /* UIViewController+Extension.swift in Sources */,
+				2D5F16C427E4D9720089E504 /* NavigationService.swift in Sources */,
+				2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +508,7 @@
 		};
 		2D5F16AE27E4CD3B0089E504 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8980E4B84B752C2E2341800B /* Pods-SecureMessanger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +539,7 @@
 		};
 		2D5F16AF27E4CD3B0089E504 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E424E6E241B0335E9F31BAE /* Pods-SecureMessanger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

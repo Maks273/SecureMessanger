@@ -22,11 +22,9 @@ class WelcomeViewController: UIViewController {
         rootView?.configure()
         
         rootView?.loginAction = { [weak self] in
-            
+            self?.navigationController?.pushViewController(LoginViewController(), animated: true)
         }
-        rootView?.signUpAction = { [weak self] in
-            
-        }
+
     }
     
     

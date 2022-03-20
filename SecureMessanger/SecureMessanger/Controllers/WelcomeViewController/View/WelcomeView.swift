@@ -16,7 +16,6 @@ class WelcomeView: UIView {
     //MARK: - Variables
     
     var loginAction: (() -> ())?
-    var signUpAction: (() -> ())?
     private let termsOfUse = "Terms of Use"
     private let privacyPolicy = "Privacy Policy"
     
@@ -30,10 +29,6 @@ class WelcomeView: UIView {
     
     @IBAction private func loginButtonPressed(_ sender: Any) {
         loginAction?()
-    }
-    
-    @IBAction private func signUpButtonPressed(_ sender: Any) {
-        signUpAction?()
     }
     
     //MARK: - Helper
