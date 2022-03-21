@@ -30,6 +30,9 @@
 		2D72CF9027E78987002D2924 /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8F27E78987002D2924 /* ContactsListView.swift */; };
 		2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF9227E78F40002D2924 /* ContactListTableViewCell.swift */; };
 		2D72CF9527E78F40002D2924 /* ContactListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF9327E78F40002D2924 /* ContactListTableViewCell.xib */; };
+		2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF9927E798F2002D2924 /* SettingsViewController.swift */; };
+		2D72CF9C27E798F2002D2924 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF9A27E798F2002D2924 /* SettingsViewController.xib */; };
+		2D72CF9E27E7991A002D2924 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF9D27E7991A002D2924 /* SettingsView.swift */; };
 		2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */; };
 		2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */; };
 		2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */; };
@@ -69,6 +72,9 @@
 		2D72CF8F27E78987002D2924 /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
 		2D72CF9227E78F40002D2924 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
 		2D72CF9327E78F40002D2924 /* ContactListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListTableViewCell.xib; sourceTree = "<group>"; };
+		2D72CF9927E798F2002D2924 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2D72CF9A27E798F2002D2924 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		2D72CF9D27E7991A002D2924 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsViewController.xib; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 		2D5F16B027E4CE940089E504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D72CF9627E798D1002D2924 /* SettingsViewController */,
 				2D72CF8827E78956002D2924 /* ContactsListViewController */,
 				2DC3B7C727E775ED00B5DC24 /* ChatListViewController */,
 				2DC3B7BA27E7344900B5DC24 /* ProfileSettingsViewController */,
@@ -301,6 +308,32 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		2D72CF9627E798D1002D2924 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D72CF9827E798E4002D2924 /* Controller */,
+				2D72CF9727E798DD002D2924 /* View */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		2D72CF9727E798DD002D2924 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D72CF9D27E7991A002D2924 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D72CF9827E798E4002D2924 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D72CF9927E798F2002D2924 /* SettingsViewController.swift */,
+				2D72CF9A27E798F2002D2924 /* SettingsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2DC3B7BA27E7344900B5DC24 /* ProfileSettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +483,7 @@
 			files = (
 				2D72CF9527E78F40002D2924 /* ContactListTableViewCell.xib in Resources */,
 				2D5F16C927E4D9E20089E504 /* LoginViewController.xib in Resources */,
+				2D72CF9C27E798F2002D2924 /* SettingsViewController.xib in Resources */,
 				2DC3B7D527E778BE00B5DC24 /* ChatListTableViewCell.xib in Resources */,
 				2D5F16A927E4CD3B0089E504 /* LaunchScreen.storyboard in Resources */,
 				2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */,
@@ -525,6 +559,7 @@
 				2D5F16BE27E4D18B0089E504 /* UIView+Extension.swift in Sources */,
 				2D5F16BC27E4D0220089E504 /* WelcomeView.swift in Sources */,
 				2D5F16CF27E4E7F30089E504 /* UIViewController+Extension.swift in Sources */,
+				2D72CF9E27E7991A002D2924 /* SettingsView.swift in Sources */,
 				2D5F16C427E4D9720089E504 /* NavigationService.swift in Sources */,
 				2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */,
 				2D72CF9027E78987002D2924 /* ContactsListView.swift in Sources */,
@@ -533,6 +568,7 @@
 				2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */,
 				2DC3B7CF27E7769100B5DC24 /* ChatListView.swift in Sources */,
 				2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */,
+				2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

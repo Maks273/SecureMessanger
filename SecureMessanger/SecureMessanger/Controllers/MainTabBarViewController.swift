@@ -26,7 +26,11 @@ class MainTabBarViewController: UITabBarController {
         contactsListVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.3.sequence"), selectedImage: UIImage(systemName: "person.3.sequence"))
         let contactsListNavVC = UINavigationController(rootViewController: contactsListVC)
         
-        viewControllers = [chatListNavVC, contactsListNavVC]
+        let settingsVC = SettingsViewController()
+        settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "gear"), selectedImage: UIImage(systemName: "gear"))
+        let settingsNavVC = UINavigationController(rootViewController: settingsVC)
+        
+        viewControllers = [chatListNavVC, contactsListNavVC, settingsNavVC]
     }
     
     private func configureTabBarStyle() {
