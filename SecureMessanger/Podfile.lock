@@ -1,0 +1,28 @@
+PODS:
+  - FlagPhoneNumber (0.8.0):
+    - FlagPhoneNumber/libPhoneNumberiOS (= 0.8.0)
+  - FlagPhoneNumber/libPhoneNumberiOS (0.8.0)
+  - InputBarAccessoryView (5.4.0):
+    - InputBarAccessoryView/Core (= 5.4.0)
+  - InputBarAccessoryView/Core (5.4.0)
+  - MessageKit (3.7.0):
+    - InputBarAccessoryView (~> 5.4.0)
+
+DEPENDENCIES:
+  - FlagPhoneNumber
+  - MessageKit
+
+SPEC REPOS:
+  trunk:
+    - FlagPhoneNumber
+    - InputBarAccessoryView
+    - MessageKit
+
+SPEC CHECKSUMS:
+  FlagPhoneNumber: 3712455b95f66cb0f2016fef7d9e34cddf8c7f9a
+  InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
+  MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
+
+PODFILE CHECKSUM: 5bd8c65baa55a80405de49f9e4dfa96e2b4c1b99
+
+COCOAPODS: 1.11.2

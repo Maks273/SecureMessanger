@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatViewController" customModule="SecureMessanger" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="ChatView" customModule="SecureMessanger" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bsf-av-z8P">
+                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdg-Jr-ocX">
+                            <rect key="frame" x="12" y="12.5" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="SBz-Nt-9Xb"/>
+                                <constraint firstAttribute="height" constant="35" id="X06-tL-ZHM"/>
+                            </constraints>
+                            <color key="tintColor" name="#2F385D"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="chevron.left" catalog="system"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maksym Paidych" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBR-I3-P9T">
+                            <rect key="frame" x="49" y="21.5" width="311" height="17.5"/>
+                            <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="16"/>
+                            <color key="textColor" name="#2F385D"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzU-hB-FD8">
+                            <rect key="frame" x="362" y="10" width="40" height="40"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="bif-fj-P9T"/>
+                                <constraint firstAttribute="width" constant="40" id="lWB-mB-AuW"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0D-Ge-BbX">
+                            <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="bJu-h7-c22"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="XBR-I3-P9T" firstAttribute="centerY" secondItem="Bsf-av-z8P" secondAttribute="centerY" id="4H6-nx-bNe"/>
+                        <constraint firstItem="PzU-hB-FD8" firstAttribute="leading" secondItem="XBR-I3-P9T" secondAttribute="trailing" constant="2" id="KCM-kX-P1Z"/>
+                        <constraint firstItem="XBR-I3-P9T" firstAttribute="leading" secondItem="kdg-Jr-ocX" secondAttribute="trailing" constant="2" id="KpQ-nj-Wl2"/>
+                        <constraint firstItem="kdg-Jr-ocX" firstAttribute="centerY" secondItem="Bsf-av-z8P" secondAttribute="centerY" id="L24-90-5Af"/>
+                        <constraint firstItem="PzU-hB-FD8" firstAttribute="centerY" secondItem="Bsf-av-z8P" secondAttribute="centerY" id="PLa-Zt-BYb"/>
+                        <constraint firstAttribute="bottom" secondItem="k0D-Ge-BbX" secondAttribute="bottom" id="W0y-zX-uk6"/>
+                        <constraint firstItem="k0D-Ge-BbX" firstAttribute="leading" secondItem="Bsf-av-z8P" secondAttribute="leading" id="XVI-bw-TXa"/>
+                        <constraint firstItem="kdg-Jr-ocX" firstAttribute="leading" secondItem="Bsf-av-z8P" secondAttribute="leading" constant="12" id="Y8u-Ck-SWi"/>
+                        <constraint firstAttribute="trailing" secondItem="PzU-hB-FD8" secondAttribute="trailing" constant="12" id="hyl-fC-Swm"/>
+                        <constraint firstAttribute="height" constant="60" id="jAd-s5-t2Q"/>
+                        <constraint firstAttribute="trailing" secondItem="k0D-Ge-BbX" secondAttribute="trailing" id="nT5-QM-pVG"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5me-2h-DMY">
+                    <rect key="frame" x="0.0" y="774" width="414" height="122"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Bsf-av-z8P" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Jj2-lV-VSy"/>
+                <constraint firstItem="Bsf-av-z8P" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="U4x-Oz-bMl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bsf-av-z8P" secondAttribute="trailing" id="reu-Xe-pOQ"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="98.4375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <namedColor name="#2F385D">
+            <color red="0.18431372549019609" green="0.2196078431372549" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
