@@ -46,6 +46,8 @@
 		2DC3B7D427E778BE00B5DC24 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7D227E778BE00B5DC24 /* ChatListTableViewCell.swift */; };
 		2DC3B7D527E778BE00B5DC24 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC3B7D327E778BE00B5DC24 /* ChatListTableViewCell.xib */; };
 		2DC3B7D727E778F200B5DC24 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7D627E778F200B5DC24 /* Chat.swift */; };
+		2DE229392827EF7C00C7776A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE229382827EF7C00C7776A /* ApiService.swift */; };
+		2DE2293C2827EFF800C7776A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2293B2827EFF800C7776A /* User.swift */; };
 		609707F2E176BA6E81DA281B /* Pods_SecureMessanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,8 @@
 		2DC3B7D227E778BE00B5DC24 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		2DC3B7D327E778BE00B5DC24 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
 		2DC3B7D627E778F200B5DC24 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		2DE229382827EF7C00C7776A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		2DE2293B2827EFF800C7776A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecureMessanger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E424E6E241B0335E9F31BAE /* Pods-SecureMessanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMessanger.release.xcconfig"; path = "Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger.release.xcconfig"; sourceTree = "<group>"; };
 		8980E4B84B752C2E2341800B /* Pods-SecureMessanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMessanger.debug.xcconfig"; path = "Target Support Files/Pods-SecureMessanger/Pods-SecureMessanger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		2D5F16B127E4CEA00089E504 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2DE2293A2827EFE700C7776A /* API */,
 				2DC3B7D627E778F200B5DC24 /* Chat.swift */,
 			);
 			path = Models;
@@ -223,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				2D5F16C327E4D9720089E504 /* NavigationService.swift */,
+				2DE229382827EF7C00C7776A /* ApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -437,6 +443,14 @@
 			path = ChatListTableViewCell;
 			sourceTree = "<group>";
 		};
+		2DE2293A2827EFE700C7776A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2DE2293B2827EFF800C7776A /* User.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		853CC5ABA1271FE6C0ECD3D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +600,7 @@
 				2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */,
 				2D72CF8727E78548002D2924 /* MainTabBarViewController.swift in Sources */,
 				2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */,
+				2DE2293C2827EFF800C7776A /* User.swift in Sources */,
 				2D5F16CD27E4DA040089E504 /* LoginView.swift in Sources */,
 				2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */,
 				2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */,
@@ -604,6 +619,7 @@
 				2D86B31527E89EBA001B44E6 /* ChatViewController.swift in Sources */,
 				2DC3B7CF27E7769100B5DC24 /* ChatListView.swift in Sources */,
 				2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */,
+				2DE229392827EF7C00C7776A /* ApiService.swift in Sources */,
 				2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
