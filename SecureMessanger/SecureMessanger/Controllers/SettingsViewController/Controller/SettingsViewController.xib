@@ -227,11 +227,30 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka8-W2-1n4">
+                                    <rect key="frame" x="16" y="565" width="382" height="45"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="NqY-8L-C58"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                    <color key="tintColor" name="#2F385D"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Log out">
+                                        <color key="titleColor" systemColor="systemRedColor"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="JaB-2H-CJn" secondAttribute="trailing" constant="16" id="0XW-Vc-kNt"/>
                                 <constraint firstAttribute="trailing" secondItem="cyC-ac-re1" secondAttribute="trailing" constant="16" id="3Mt-7c-3DS"/>
+                                <constraint firstAttribute="trailing" secondItem="Ka8-W2-1n4" secondAttribute="trailing" constant="16" id="4Ds-Pb-VU1"/>
                                 <constraint firstItem="dW5-e2-yAD" firstAttribute="centerX" secondItem="mGv-Xo-gxZ" secondAttribute="centerX" id="6QN-rY-0fZ"/>
                                 <constraint firstItem="dW5-e2-yAD" firstAttribute="top" secondItem="mGv-Xo-gxZ" secondAttribute="top" constant="20" id="7hr-w9-4e5"/>
                                 <constraint firstItem="JaB-2H-CJn" firstAttribute="top" secondItem="cyC-ac-re1" secondAttribute="bottom" id="DzZ-5g-OKf"/>
@@ -241,7 +260,9 @@
                                 <constraint firstItem="sLa-Q9-IyS" firstAttribute="leading" secondItem="mGv-Xo-gxZ" secondAttribute="leading" constant="16" id="GJu-03-fUm"/>
                                 <constraint firstAttribute="trailing" secondItem="sLa-Q9-IyS" secondAttribute="trailing" constant="16" id="I8I-8L-yWw"/>
                                 <constraint firstItem="DqO-sX-DPT" firstAttribute="top" secondItem="sLa-Q9-IyS" secondAttribute="bottom" constant="40" id="Jy0-W0-dd7"/>
+                                <constraint firstItem="Ka8-W2-1n4" firstAttribute="top" secondItem="DqO-sX-DPT" secondAttribute="bottom" constant="40" id="Lxf-th-ouV"/>
                                 <constraint firstItem="DqO-sX-DPT" firstAttribute="leading" secondItem="mGv-Xo-gxZ" secondAttribute="leading" constant="16" id="Uz1-ny-eXf"/>
+                                <constraint firstItem="Ka8-W2-1n4" firstAttribute="leading" secondItem="mGv-Xo-gxZ" secondAttribute="leading" constant="16" id="bFc-cc-W1n"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DqO-sX-DPT" secondAttribute="bottom" constant="50" id="lA3-Nt-b5W"/>
                                 <constraint firstAttribute="trailing" secondItem="DqO-sX-DPT" secondAttribute="trailing" constant="16" id="ofa-UG-c8x"/>
                                 <constraint firstAttribute="trailing" secondItem="K2V-CL-cG8" secondAttribute="trailing" constant="8" id="oyD-iV-Wj6"/>
@@ -288,6 +309,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

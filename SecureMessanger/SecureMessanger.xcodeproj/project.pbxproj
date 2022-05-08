@@ -33,6 +33,9 @@
 		2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF9927E798F2002D2924 /* SettingsViewController.swift */; };
 		2D72CF9C27E798F2002D2924 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF9A27E798F2002D2924 /* SettingsViewController.xib */; };
 		2D72CF9E27E7991A002D2924 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF9D27E7991A002D2924 /* SettingsView.swift */; };
+		2D86B31527E89EBA001B44E6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86B31327E89EBA001B44E6 /* ChatViewController.swift */; };
+		2D86B31627E89EBA001B44E6 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D86B31427E89EBA001B44E6 /* ChatViewController.xib */; };
+		2D86B31827E89EC4001B44E6 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86B31727E89EC4001B44E6 /* ChatView.swift */; };
 		2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */; };
 		2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */; };
 		2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */; };
@@ -75,6 +78,9 @@
 		2D72CF9927E798F2002D2924 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D72CF9A27E798F2002D2924 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		2D72CF9D27E7991A002D2924 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2D86B31327E89EBA001B44E6 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2D86B31427E89EBA001B44E6 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		2D86B31727E89EC4001B44E6 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsViewController.xib; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		2D5F16B027E4CE940089E504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D86B31027E89E62001B44E6 /* ChatViewController */,
 				2D72CF9627E798D1002D2924 /* SettingsViewController */,
 				2D72CF8827E78956002D2924 /* ContactsListViewController */,
 				2DC3B7C727E775ED00B5DC24 /* ChatListViewController */,
@@ -334,6 +341,32 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		2D86B31027E89E62001B44E6 /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D86B31227E89EAC001B44E6 /* View */,
+				2D86B31127E89EA5001B44E6 /* Controller */,
+			);
+			path = ChatViewController;
+			sourceTree = "<group>";
+		};
+		2D86B31127E89EA5001B44E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D86B31327E89EBA001B44E6 /* ChatViewController.swift */,
+				2D86B31427E89EBA001B44E6 /* ChatViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D86B31227E89EAC001B44E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D86B31727E89EC4001B44E6 /* ChatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2DC3B7BA27E7344900B5DC24 /* ProfileSettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +516,7 @@
 			files = (
 				2D72CF9527E78F40002D2924 /* ContactListTableViewCell.xib in Resources */,
 				2D5F16C927E4D9E20089E504 /* LoginViewController.xib in Resources */,
+				2D86B31627E89EBA001B44E6 /* ChatViewController.xib in Resources */,
 				2D72CF9C27E798F2002D2924 /* SettingsViewController.xib in Resources */,
 				2DC3B7D527E778BE00B5DC24 /* ChatListTableViewCell.xib in Resources */,
 				2D5F16A927E4CD3B0089E504 /* LaunchScreen.storyboard in Resources */,
@@ -548,6 +582,7 @@
 				2D5F16B927E4CFF90089E504 /* WelcomeViewController.swift in Sources */,
 				2DC3B7D727E778F200B5DC24 /* Chat.swift in Sources */,
 				2DC3B7CC27E7764600B5DC24 /* ChatListViewController.swift in Sources */,
+				2D86B31827E89EC4001B44E6 /* ChatView.swift in Sources */,
 				2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */,
 				2D72CF8727E78548002D2924 /* MainTabBarViewController.swift in Sources */,
 				2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */,
@@ -566,6 +601,7 @@
 				2DC3B7D427E778BE00B5DC24 /* ChatListTableViewCell.swift in Sources */,
 				2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */,
 				2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */,
+				2D86B31527E89EBA001B44E6 /* ChatViewController.swift in Sources */,
 				2DC3B7CF27E7769100B5DC24 /* ChatListView.swift in Sources */,
 				2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */,
 				2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */,

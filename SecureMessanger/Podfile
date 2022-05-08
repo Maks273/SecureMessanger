@@ -7,4 +7,5 @@ target 'SecureMessanger' do
 
   # Pods for SecureMessanger
   pod 'FlagPhoneNumber'
+pod 'MessageKit'
 end
