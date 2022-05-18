@@ -36,7 +36,7 @@ class LoginView: UIView {
     //MARK: - Helper
     
     func phoneNumber() -> String? {
-        return phoneTextField.text
+        return phoneTextField.selectedCountry?.phoneCode.appending(phoneTextField.text ?? "").replacingOccurrences(of: " ", with: "")
     }
     
     

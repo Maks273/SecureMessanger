@@ -14,6 +14,8 @@ class ProfileSettingsView: UIView {
     @IBOutlet private weak var phoneNumberTextField: UITextField!
     @IBOutlet private weak var bioTextView: UITextView!
     @IBOutlet private weak var bioTextViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var avatarButton: UIButton!
     
     //MARK: - Variables
     
@@ -42,5 +44,35 @@ class ProfileSettingsView: UIView {
         bioTextViewHeight.constant = height
     }
     
+    func setName(_ name: String?) {
+        usernameTextField.text = name
+    }
+    
+    func setBioInfo(_ text: String?) {
+        bioTextView.text = text
+    }
+    
+    func setUserImage(_ imageURL: String?) {
+        
+    }
+    
+    func getUserImage() -> UIImage? {
+        return avatarButton.imageView?.image
+    }
+    
+    func getUserName() -> String? {
+        return usernameTextField.text
+    }
+    
+    func getUserBio() -> String? {
+        return bioTextView.text
+    }
+    
+    func getUserPhoneNumber() -> String? {
+        return phoneNumberTextField.text
+    }
+    
     //MARK: - Private methods
+    
+    
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D47E203282EB6C000AE258E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E202282EB6C000AE258E /* String+Extension.swift */; };
+		2D47E20B282EBA5100AE258E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47E20A282EBA5100AE258E /* CryptoSwift */; };
 		2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F169C27E4CD390089E504 /* AppDelegate.swift */; };
 		2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F169E27E4CD390089E504 /* SceneDelegate.swift */; };
 		2D5F16A627E4CD3B0089E504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F16A527E4CD3B0089E504 /* Assets.xcassets */; };
@@ -24,6 +26,9 @@
 		2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16D327E4EA550089E504 /* ConfirmPhoneNumberViewController.swift */; };
 		2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */; };
 		2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F16D727E4EA630089E504 /* ConfirmPhoneNumberView.swift */; };
+		2D6244F5283562FA0094DD04 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F4283562FA0094DD04 /* ApiErrors.swift */; };
+		2D6244F7283563150094DD04 /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F6283563150094DD04 /* DictionaryDecoder.swift */; };
+		2D6244F928356C870094DD04 /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F828356C870094DD04 /* UpdateUserRequest.swift */; };
 		2D72CF8727E78548002D2924 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */; };
 		2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */; };
 		2D72CF8D27E78978002D2924 /* ContactsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */; };
@@ -36,6 +41,7 @@
 		2D86B31527E89EBA001B44E6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86B31327E89EBA001B44E6 /* ChatViewController.swift */; };
 		2D86B31627E89EBA001B44E6 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D86B31427E89EBA001B44E6 /* ChatViewController.xib */; };
 		2D86B31827E89EC4001B44E6 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86B31727E89EC4001B44E6 /* ChatView.swift */; };
+		2DA57214282FB575002D9F9F /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA57213282FB575002D9F9F /* CredentialManager.swift */; };
 		2DC3B7C027E7349200B5DC24 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */; };
 		2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */; };
 		2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */; };
@@ -52,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D47E202282EB6C000AE258E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2D5F169927E4CD390089E504 /* SecureMessanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureMessanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5F169C27E4CD390089E504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D5F169E27E4CD390089E504 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +78,9 @@
 		2D5F16D327E4EA550089E504 /* ConfirmPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPhoneNumberViewController.xib; sourceTree = "<group>"; };
 		2D5F16D727E4EA630089E504 /* ConfirmPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberView.swift; sourceTree = "<group>"; };
+		2D6244F4283562FA0094DD04 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
+		2D6244F6283563150094DD04 /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
+		2D6244F828356C870094DD04 /* UpdateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRequest.swift; sourceTree = "<group>"; };
 		2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsListViewController.xib; sourceTree = "<group>"; };
@@ -83,6 +93,7 @@
 		2D86B31327E89EBA001B44E6 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2D86B31427E89EBA001B44E6 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		2D86B31727E89EC4001B44E6 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		2DA57213282FB575002D9F9F /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		2DC3B7BF27E7349200B5DC24 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		2DC3B7C127E734B000B5DC24 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		2DC3B7C227E734B000B5DC24 /* ProfileSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsViewController.xib; sourceTree = "<group>"; };
@@ -106,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				609707F2E176BA6E81DA281B /* Pods_SecureMessanger.framework in Frameworks */,
+				2D47E20B282EBA5100AE258E /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,8 +179,10 @@
 		2D5F16B127E4CEA00089E504 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2DE2293A2827EFE700C7776A /* API */,
+				2DE2293B2827EFF800C7776A /* User.swift */,
 				2DC3B7D627E778F200B5DC24 /* Chat.swift */,
+				2D6244F4283562FA0094DD04 /* ApiErrors.swift */,
+				2D6244F828356C870094DD04 /* UpdateUserRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +193,7 @@
 				2D5F16BD27E4D18B0089E504 /* UIView+Extension.swift */,
 				2D5F16CE27E4E7F30089E504 /* UIViewController+Extension.swift */,
 				2DC3B7C527E76F6B00B5DC24 /* UITextView+Extension.swift */,
+				2D47E202282EB6C000AE258E /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +244,8 @@
 			children = (
 				2D5F16C327E4D9720089E504 /* NavigationService.swift */,
 				2DE229382827EF7C00C7776A /* ApiService.swift */,
+				2DA57213282FB575002D9F9F /* CredentialManager.swift */,
+				2D6244F6283563150094DD04 /* DictionaryDecoder.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -443,14 +460,6 @@
 			path = ChatListTableViewCell;
 			sourceTree = "<group>";
 		};
-		2DE2293A2827EFE700C7776A /* API */ = {
-			isa = PBXGroup;
-			children = (
-				2DE2293B2827EFF800C7776A /* User.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		853CC5ABA1271FE6C0ECD3D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +495,9 @@
 			dependencies = (
 			);
 			name = SecureMessanger;
+			packageProductDependencies = (
+				2D47E20A282EBA5100AE258E /* CryptoSwift */,
+			);
 			productName = SecureMessanger;
 			productReference = 2D5F169927E4CD390089E504 /* SecureMessanger.app */;
 			productType = "com.apple.product-type.application";
@@ -514,6 +526,10 @@
 				Base,
 			);
 			mainGroup = 2D5F169027E4CD390089E504;
+			packageReferences = (
+				2D47E204282EB9CD00AE258E /* XCRemoteSwiftPackageReference "swift-crypto" */,
+				2D47E209282EBA5100AE258E /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+			);
 			productRefGroup = 2D5F169A27E4CD390089E504 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -593,7 +609,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D5F16C127E4D6A70089E504 /* RootViewProtocol.swift in Sources */,
+				2D6244F5283562FA0094DD04 /* ApiErrors.swift in Sources */,
 				2D5F16B927E4CFF90089E504 /* WelcomeViewController.swift in Sources */,
+				2DA57214282FB575002D9F9F /* CredentialManager.swift in Sources */,
 				2DC3B7D727E778F200B5DC24 /* Chat.swift in Sources */,
 				2DC3B7CC27E7764600B5DC24 /* ChatListViewController.swift in Sources */,
 				2D86B31827E89EC4001B44E6 /* ChatView.swift in Sources */,
@@ -606,6 +624,9 @@
 				2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */,
 				2D5F16C827E4D9E20089E504 /* LoginViewController.swift in Sources */,
 				2DC3B7C627E76F6B00B5DC24 /* UITextView+Extension.swift in Sources */,
+				2D6244F7283563150094DD04 /* DictionaryDecoder.swift in Sources */,
+				2D6244F928356C870094DD04 /* UpdateUserRequest.swift in Sources */,
+				2D47E203282EB6C000AE258E /* String+Extension.swift in Sources */,
 				2D5F16BE27E4D18B0089E504 /* UIView+Extension.swift in Sources */,
 				2D5F16BC27E4D0220089E504 /* WelcomeView.swift in Sources */,
 				2D5F16CF27E4E7F30089E504 /* UIViewController+Extension.swift in Sources */,
@@ -838,6 +859,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2D47E204282EB9CD00AE258E /* XCRemoteSwiftPackageReference "swift-crypto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-crypto.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		2D47E209282EBA5100AE258E /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2D47E20A282EBA5100AE258E /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D47E209282EBA5100AE258E /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2D5F169127E4CD390089E504 /* Project object */;
 }

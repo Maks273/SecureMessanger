@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -159,9 +159,11 @@
                 <constraint firstItem="s32-aE-xtD" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="rLX-r0-g2N"/>
             </constraints>
             <connections>
+                <outlet property="avatarButton" destination="4aV-gg-luJ" id="kDr-kJ-IG5"/>
                 <outlet property="bioTextView" destination="N3V-7j-Wyi" id="SsS-ro-ovF"/>
                 <outlet property="bioTextViewHeight" destination="1LJ-7G-wss" id="hCA-Sg-ZdQ"/>
                 <outlet property="phoneNumberTextField" destination="33r-Qv-gM6" id="7dE-Oh-fTU"/>
+                <outlet property="usernameTextField" destination="ZBJ-ME-Pgw" id="BUy-le-Z0h"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="98.4375"/>
         </view>

@@ -50,5 +50,23 @@ extension UIViewController {
     @objc private func didTapBackButton() {
         navigationController?.popViewController(animated: true)
     }
+    
+    func showTextFieldAlert(title: String, okTitle: String, okActionCompletion: @escaping (_ text: String?) -> Void) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: okTitle, style: .default) { _ in
+            okActionCompletion(alert.textFields?.first?.text)
+        }
+        
+        alert.addTextField()
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        alert.view.tintColor = UIColor(named: "AppRedColor(#FF2828)")
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 

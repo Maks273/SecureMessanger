@@ -7,6 +7,7 @@
 
 import UIKit
 import FlagPhoneNumber
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
     
@@ -37,14 +38,26 @@ class LoginViewController: UIViewController {
                 self?.showAlert(title: "Warning", message: "Your phone number isn't valid", okTitle: "OK", okAction: nil)
                 return
             }
-            let vc = ConfirmPhoneNumberViewController()
-            vc.phoneNumber = "\(self.selectedCode)\(number)"
-            print("\(self.selectedCode)\(number)")
-            self.navigationController?.pushViewController(vc, animated: true)
             
+            let progress = MBProgressHUD.showAdded(to: self.view, animated: true)
+            ApiService.shared.registerUser(phoneNumber: number) { [weak self] user, error in
+                progress.hide(animated: true)
+                guard let self = self else { return }
+                
+                if let error = error {
+                    self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "OK", cancelTitle: nil, okAction: nil, cancelAction: nil)
+                }else {
+                    self.showConfirmNumberVC(number: number)
+                }
+            }
         }
     }
    
+    private func showConfirmNumberVC(number: String) {
+        let vc = ConfirmPhoneNumberViewController()
+        vc.phoneNumber = number
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 

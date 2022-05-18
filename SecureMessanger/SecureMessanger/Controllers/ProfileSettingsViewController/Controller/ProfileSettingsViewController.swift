@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class ProfileSettingsViewController: UIViewController {
     
@@ -30,16 +31,53 @@ class ProfileSettingsViewController: UIViewController {
         title = "Profile settings"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fillData()
+    }
+    
     //MARK: - Private methods
     
     private func configureView() {
         rootView?.setupPhoneNumber(phoneNumber)
         rootView?.saveAction = { [weak self] in
             guard let self = self else { return }
-            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-            sceneDelegate?.window?.rootViewController = MainTabBarViewController()
-            sceneDelegate?.window?.makeKeyAndVisible()
+            self.updateUser()
+//            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+//            sceneDelegate?.window?.rootViewController = MainTabBarViewController()
+//            sceneDelegate?.window?.makeKeyAndVisible()
         }
+    }
+    
+    private func updateUser() {
+        guard let newPhoneNumber = rootView?.getUserPhoneNumber(), !newPhoneNumber.isEmpty else {
+            return
+        }
+        
+        let username = rootView?.getUserName()
+        let bio = rootView?.getUserBio()
+        let image = rootView?.getUserImage()
+        
+
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        ApiService.shared.updateUser(UpdateUserRequest(name: username, phone: newPhoneNumber, description: bio)) { [weak self] success, error in
+            progress.hide(animated: true)
+            guard let self = self else { return }
+
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else if success {
+
+            }
+        }
+    }
+    
+    private func fillData() {
+        let user = CredentialManager.sharedInstance.currentUser
+        rootView?.setName(user?.name)
+        rootView?.setupPhoneNumber(user?.phone)
+        rootView?.setBioInfo(user?.description)
+        rootView?.setUserImage(user?.avatarUrl)
     }
 }
 

@@ -15,12 +15,22 @@ struct Chat: Codable {
 }
 
 struct User: Codable {
-    let name: String
-    let imageURL: String
+    var name: String?
+    var avatarUrl: String {
+        get {
+            return "https://uk.wikipedia.org/wiki/Стів_Джобс#/media/Файл:Steve_Jobs_Headshot_2010-CROP.jpg"
+        }
+    }
+    var phone: String
+    let id: Int
+    let userPublicKey: String?
+    let avatartFileId: Int?
+    let hash: String
+    var description: String
 }
 
 extension User {
-    static let vladimir = User(name: "Vladimir Zelenskij", imageURL: "https://uk.wikipedia.org/wiki/Стів_Джобс#/media/Файл:Steve_Jobs_Headshot_2010-CROP.jpg")
+    static let vladimir = User(name: "Vladimir Zelenskij", phone: "", id: 2, userPublicKey: "", avatartFileId: 2, hash: "", description: "")
     static let data: [User] = [vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir]
 }
 
