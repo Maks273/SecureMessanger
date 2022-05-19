@@ -31,9 +31,10 @@ class ChatListTableViewCell: UITableViewCell {
     //MARK: - Helper
     
     func configure(with model: Chat) {
-        unreadView.isHidden = !model.isUnread
-        usernameLabel.text = model.user.name
-        messageLabel.text = model.lastMessage
-        timeLabel.text = model.time
+        unreadView.isHidden = true
+        let isGroup = model.chat.type == 2
+        usernameLabel.text = isGroup ? model.chat.name : model.lastMessage?.fromUserName
+        messageLabel.text = model.lastMessage?.message
+        timeLabel.text = model.lastMessage?.timeStamp.dateStringFromTimestamp(with: .hhmm)
     }
 }

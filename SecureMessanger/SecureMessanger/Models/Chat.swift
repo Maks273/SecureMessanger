@@ -8,10 +8,30 @@
 import UIKit
 
 struct Chat: Codable {
-    let user: User
-    let lastMessage: String
-    let isUnread: Bool
-    let time: String
+    let user: User?
+    let lastMessage: LastMessage?
+    let members: [User]
+    let chat: ChatEntity
+}
+
+struct ChatEntity: Codable {
+    let id: Int
+    let name: String
+    let type: Int
+    let avatarFileId: Int?
+}
+
+struct LastMessage: Codable {
+    let id: Int
+    let chatId: Int
+    let fromUserId: Int
+    let type: Int
+    let fileId: Int?
+    let referenceId: Int?
+    let timeStamp: Int
+    let message: String
+    let fromUserName: String
+    let fromUserAvatarFileId: Int?
 }
 
 struct User: Codable {
@@ -35,16 +55,5 @@ extension User {
 }
 
 extension Chat {
-    static let data: [Chat] = [Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: false, time: "15 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "335 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins"),
-                               Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins")
-    ]
+   // static let data: [Chat] = [Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins", members: [], chat: ChatEntity(id: 1, name: "", type: 1, avatarFileId: nil))]
 }

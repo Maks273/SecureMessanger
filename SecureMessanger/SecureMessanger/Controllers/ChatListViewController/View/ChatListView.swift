@@ -25,6 +25,8 @@ class ChatListView: UIView {
         }
     }
     
+    var refreshAction: (() -> ())?
+    
     //MARK: - Override
    
     override func awakeFromNib() {
@@ -40,11 +42,25 @@ class ChatListView: UIView {
     
     //MARK: - Helper
     
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+    
+    func stopRefreshControl() {
+        tableView.refreshControl?.endRefreshing()
+    }
+    
     //MARK: - Private methods
     
     private func configureTableView() {
         tableView.register(UINib(nibName: chatCellID, bundle: nil), forCellReuseIdentifier: chatCellID)
-        //TODO: - Add refresh controll
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refresh() {
+        refreshAction?()
     }
 
 }

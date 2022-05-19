@@ -15,7 +15,7 @@ class MainTabBarViewController: UITabBarController {
         navigationController?.navigationBar.isHidden = true
         setupViewControllers()
         configureTabBarStyle()
-        loadCurrentUser()
+        //loadCurrentUser()
     }
     
     private func setupViewControllers() {

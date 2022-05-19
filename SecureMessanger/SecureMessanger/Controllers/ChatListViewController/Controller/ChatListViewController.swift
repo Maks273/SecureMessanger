@@ -6,25 +6,89 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class ChatListViewController: UIViewController {
     
     //MARK: - Variables
     
+    private let dispatchGroup = DispatchGroup()
+    private var chats: [Chat] = []
+ 
     //MARK: - Life cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        loadCurrentUser()
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.fetchChats()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        fetchChats()
+    
     }
     
     //MARK: - Private methods
     
+    private func fetchChats(showRefresh: Bool = true) {
+        guard let _ = CredentialManager.sharedInstance.currentUser?.hash else { return }
+        
+        var progress: MBProgressHUD?
+        
+        if showRefresh {
+            progress = MBProgressHUD.showAdded(to: view, animated: true)
+        }
+        
+        ApiService.shared.fetchChats { [weak self] chats, error in
+            progress?.hide(animated: true)
+            self?.rootView?.stopRefreshControl()
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else {
+                self.chats = chats
+                self.rootView?.reloadTableView()
+            }
+            
+        }
+    }
     
+    private func setupView() {
+        rootView?.refreshAction = { [weak self] in
+            self?.fetchChats(showRefresh: false)
+            
+        }
+    }
+    
+    private func loadCurrentUser() {
+        guard let phoneNumber = CredentialManager.sharedInstance.getPhone() else {
+            fatalError()
+        }
+        
+        let udid = UIDevice.current.identifierForVendor!.uuidString
+        dispatchGroup.enter()
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.fetchUser(phone: phoneNumber, deviceInfo: udid) { [weak self] user, error in
+            self?.dispatchGroup.leave()
+            guard let self = self else { return }
+            
+            progress.hide(animated: true)
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            }
+            
+            CredentialManager.sharedInstance.currentUser = user
+        }
+    }
+   
     
 }
 
@@ -46,13 +110,13 @@ extension ChatListViewController: UITableViewDelegate {
 
 extension ChatListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Chat.data.count
+        return chats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: rootView!.chatCellID, for: indexPath) as! ChatListTableViewCell
-        if indexPath.row < Chat.data.count {
-            cell.configure(with: Chat.data[indexPath.row])
+        if indexPath.row < chats.count {
+            cell.configure(with: chats[indexPath.row])
         }
         return cell
     }

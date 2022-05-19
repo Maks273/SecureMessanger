@@ -29,6 +29,7 @@
 		2D6244F5283562FA0094DD04 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F4283562FA0094DD04 /* ApiErrors.swift */; };
 		2D6244F7283563150094DD04 /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F6283563150094DD04 /* DictionaryDecoder.swift */; };
 		2D6244F928356C870094DD04 /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F828356C870094DD04 /* UpdateUserRequest.swift */; };
+		2D6244FB283688520094DD04 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244FA283688520094DD04 /* Date+Extension.swift */; };
 		2D72CF8727E78548002D2924 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */; };
 		2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */; };
 		2D72CF8D27E78978002D2924 /* ContactsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */; };
@@ -81,6 +82,7 @@
 		2D6244F4283562FA0094DD04 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
 		2D6244F6283563150094DD04 /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
 		2D6244F828356C870094DD04 /* UpdateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRequest.swift; sourceTree = "<group>"; };
+		2D6244FA283688520094DD04 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsListViewController.xib; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				2D5F16CE27E4E7F30089E504 /* UIViewController+Extension.swift */,
 				2DC3B7C527E76F6B00B5DC24 /* UITextView+Extension.swift */,
 				2D47E202282EB6C000AE258E /* String+Extension.swift */,
+				2D6244FA283688520094DD04 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				2D72CF9E27E7991A002D2924 /* SettingsView.swift in Sources */,
 				2D5F16C427E4D9720089E504 /* NavigationService.swift in Sources */,
 				2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */,
+				2D6244FB283688520094DD04 /* Date+Extension.swift in Sources */,
 				2D72CF9027E78987002D2924 /* ContactsListView.swift in Sources */,
 				2DC3B7D427E778BE00B5DC24 /* ChatListTableViewCell.swift in Sources */,
 				2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */,

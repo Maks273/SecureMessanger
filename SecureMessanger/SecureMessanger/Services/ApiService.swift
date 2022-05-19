@@ -122,4 +122,29 @@ class ApiService {
         }
     }
     
+    func fetchChats(completion: @escaping (_ chats: [Chat], _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/chat/get-chats-screen"), method: .get, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let data = dict["data"] as? [[String: Any]] {
+                    let chats = data.compactMap { try? DictionaryDecoder.shared.decode(Chat.self, from: $0) }
+                    completion(chats, nil)
+                }else {
+                    completion([], ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion([], newError != nil ? newError : error.underlyingError)
+            }
+        }
+        
+    }
+    
 }
