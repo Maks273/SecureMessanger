@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class MainTabBarViewController: UITabBarController {
 
@@ -14,6 +15,7 @@ class MainTabBarViewController: UITabBarController {
         navigationController?.navigationBar.isHidden = true
         setupViewControllers()
         configureTabBarStyle()
+        loadCurrentUser()
     }
     
     private func setupViewControllers() {
@@ -48,6 +50,29 @@ class MainTabBarViewController: UITabBarController {
             UITabBar.appearance().scrollEdgeAppearance = appearance
             UITabBar.appearance().standardAppearance = appearance
         } else {
+        }
+    }
+    
+    private func loadCurrentUser() {
+        guard let phoneNumber = CredentialManager.sharedInstance.getPhone() else {
+            fatalError()
+        }
+        
+        let udid = UIDevice.current.identifierForVendor!.uuidString
+        
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.fetchUser(phone: phoneNumber, deviceInfo: udid) { [weak self] user, error in
+            guard let self = self else { return }
+            
+            progress.hide(animated: true)
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            }
+            
+            CredentialManager.sharedInstance.currentUser = user
+            
         }
     }
 }

@@ -9,6 +9,5 @@ import Foundation
 
 struct UpdateUserRequest: Codable {
     var name: String?
-    var phone: String?
     var description: String?
 }

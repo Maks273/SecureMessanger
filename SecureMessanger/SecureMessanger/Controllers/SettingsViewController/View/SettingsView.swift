@@ -14,7 +14,7 @@ class SettingsView: UIView {
     @IBOutlet private weak var phoneNumberLabel: UILabel!
     
     var logoutAction: (() -> ())?
-    
+    var editAction: (() -> ())?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ class SettingsView: UIView {
     }
     
     @IBAction func editButtonPressed(_ sender: Any) {
-    
+        editAction?()
     }
     
     func updateView() {

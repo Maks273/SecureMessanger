@@ -33,6 +33,8 @@ class ProfileSettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = true
         fillData()
     }
     
@@ -43,31 +45,34 @@ class ProfileSettingsViewController: UIViewController {
         rootView?.saveAction = { [weak self] in
             guard let self = self else { return }
             self.updateUser()
-//            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-//            sceneDelegate?.window?.rootViewController = MainTabBarViewController()
-//            sceneDelegate?.window?.makeKeyAndVisible()
         }
     }
     
     private func updateUser() {
-        guard let newPhoneNumber = rootView?.getUserPhoneNumber(), !newPhoneNumber.isEmpty else {
-            return
-        }
         
         let username = rootView?.getUserName()
         let bio = rootView?.getUserBio()
         let image = rootView?.getUserImage()
         
+        guard username?.isEmpty == false else  {
+            showAlert(title: "Warning", message: "The username can't be empty", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            return
+        }
 
         let progress = MBProgressHUD.showAdded(to: view, animated: true)
-        ApiService.shared.updateUser(UpdateUserRequest(name: username, phone: newPhoneNumber, description: bio)) { [weak self] success, error in
+        ApiService.shared.updateUser(UpdateUserRequest(name: username, description: bio)) { [weak self] user, error in
             progress.hide(animated: true)
             guard let self = self else { return }
 
             if let error = error {
                 self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
-            } else if success {
-
+            } else if let user = user {
+                CredentialManager.sharedInstance.currentUser = user
+                if self.tabBarController == nil {
+                    let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                    sceneDelegate?.window?.rootViewController = MainTabBarViewController()
+                    sceneDelegate?.window?.makeKeyAndVisible()
+                }
             }
         }
     }

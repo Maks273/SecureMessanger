@@ -25,7 +25,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>rusofobrusofob-001-site1.itempurl.com</key>
+			<key>superchathost-001-site1.dtempurl.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
@@ -34,9 +34,9 @@
 			</dict>
 		</dict>
 	</dict>
-    <key>UIFileSharingEnabled</key>
-        <true/>
-        <key>LSSupportsOpeningDocumentsInPlace</key>
-        <true/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 </dict>
 </plist>

@@ -13,8 +13,9 @@ class ApiService {
     private init() {}
     
     static let shared = ApiService()
-    private let baseURL = "http://rusofobrusofob-001-site1.itempurl.com/api/"
+    private let baseURL = "http://superchathost-001-site1.dtempurl.com/api/"
     private let headerAccessToken = "42E04354-282A-46BF-9058-8B10F3714003"
+    private let privateHeaderAccessToken = "28899969-D3C6-46BB-83C7-AA6338FDB572"
     
     
     func registerUser(phoneNumber: String, completion: @escaping (_ user: User?, _ error: Error?) -> Void) {
@@ -74,23 +75,49 @@ class ApiService {
         }
     }
     
-    func updateUser(_ user: UpdateUserRequest, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+    func updateUser(_ user: UpdateUserRequest, completion: @escaping (_ user: User?, _ error: Error?) -> Void) {
         
         guard let dict = user.dict else { return }
 
         let udid = UIDevice.current.identifierForVendor!.uuidString
         
-        AF.request(baseURL.appending("\(CredentialManager.sharedInstance.currentUser!.hash)/\(udid.sha256())/user/update"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": headerAccessToken]).validate().responseJSON { response in
+        AF.request(baseURL.appending("\(CredentialManager.sharedInstance.currentUser!.hash)/\(udid.sha256())/user/update"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
             switch response.result {
             case .success(let result):
-                print(result)
-                completion(true, nil)
+                if let dict = result as? [String: Any], let data = dict["data"] as? [String: Any] {
+                    let user = try? DictionaryDecoder.shared.decode(User.self, from: data)
+                    completion(user, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
             case .failure(let error):
                 var newError: Error?
                 if let data = response.data, let message = String(data: data, encoding: .utf8) {
                     newError = ApiErrors(message: message)
                 }
-                completion(false, newError != nil ? newError : error.underlyingError)
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+    }
+    
+    func fetchUser(phone: String, deviceInfo: String, completion: @escaping (_ user: User?, _ error: Error?) -> Void) {
+        let dict = ["phone": phone, "deviceInfoHash": deviceInfo.sha256()]
+        
+        AF.request(baseURL.appending("register/get-user"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": headerAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let data = dict["data"] as? [String: Any] {
+                    let user = try? DictionaryDecoder.shared.decode(User.self, from: data)
+                    completion(user, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
             }
         }
     }

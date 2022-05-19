@@ -16,7 +16,9 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        rootView?.updateView()
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
     
     private func setupView() {
@@ -27,6 +29,16 @@ class SettingsViewController: UIViewController {
             sceneDelegate?.window?.rootViewController = navController
             sceneDelegate?.window?.makeKeyAndVisible()
         }
+        
+        rootView?.editAction = { [weak self] in
+            self?.showProfileSettingsVC()
+        }
+    }
+    
+    private func showProfileSettingsVC() {
+        let vc = ProfileSettingsViewController()
+        vc.phoneNumber = CredentialManager.sharedInstance.currentUser?.phone
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 

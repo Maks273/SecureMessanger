@@ -50,6 +50,12 @@ class ConfirmPhoneNumberViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    private func showMainVC() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.window?.rootViewController = MainTabBarViewController()
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
+    
     private func resendCode() {
         guard let phoneNumber = phoneNumber else { return }
 
@@ -75,7 +81,7 @@ class ConfirmPhoneNumberViewController: UIViewController {
         }
         
         guard let publicKey = publicKey, let privateKey = privateKey else { return }
-        CredentialManager.sharedInstance.setRSA(rsa: publicKey)
+        //CredentialManager.sharedInstance.setRSA(rsa: publicKey)
         
         self.sendApprovePhoneNumber(secret: publicKey, privateKey: privateKey)
 
@@ -181,7 +187,8 @@ extension ConfirmPhoneNumberViewController: UIDocumentPickerDelegate {
                         return
                     }
                     CredentialManager.sharedInstance.setRSA(rsa: privateStringKey)
-                    showProfileSettingsVC()
+                    CredentialManager.sharedInstance.setPhone(phone: CredentialManager.sharedInstance.currentUser?.phone)
+                    CredentialManager.sharedInstance.currentUser?.name?.isEmpty == true ? showProfileSettingsVC() : showMainVC()
                     
                 } catch {
                     showAlert(title: "Error", message: "Wrong private key", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)

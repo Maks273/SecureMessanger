@@ -20,6 +20,7 @@ class CredentialManager {
     private let PRIVATE_RSA = "uk.co.secretChat.private_rsa"
     private let USERNAME = "uk.co.secretChat.username"
     private let NAME = "uk.co.secretChat.name"
+    private let PHONE = "uk.co.secretChat.phone"
     private let ID = "uk.co.secretChat.id"
 
     private init() {
@@ -98,6 +99,19 @@ class CredentialManager {
             
         }
         
+    }
+    
+    func setPhone(phone: String?) {
+        keychain[PHONE] = phone
+    }
+    
+
+    func getPhone() -> String? {
+        if let phone = keychain[PHONE] {
+            return phone
+        } else {
+            return nil
+        }
     }
     
     func hasAccessToken() -> Bool {
