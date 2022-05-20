@@ -8,22 +8,29 @@
 import UIKit
 
 class ChatViewController: UIViewController {
+    
+    var chat: Chat?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupView() {
+        rootView?.backAction = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
-    */
 
+}
+
+extension ChatViewController: RootViewGettable {
+    typealias RootViewType = ChatView
 }

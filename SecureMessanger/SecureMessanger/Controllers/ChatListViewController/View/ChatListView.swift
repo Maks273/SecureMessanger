@@ -26,6 +26,7 @@ class ChatListView: UIView {
     }
     
     var refreshAction: (() -> ())?
+    var createChatAction: (() -> ())?
     
     //MARK: - Override
    
@@ -38,6 +39,10 @@ class ChatListView: UIView {
     
     @IBAction private func searchButtonPressed(_ sender: Any) {
         isSearchMode.toggle()
+    }
+   
+    @IBAction private func createChatButtonPressed(_ sender: Any) {
+        createChatAction?()
     }
     
     //MARK: - Helper

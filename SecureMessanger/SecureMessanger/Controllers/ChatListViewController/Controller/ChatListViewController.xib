@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghS-XH-UpB">
-                            <rect key="frame" x="16" y="12.5" width="341" height="34"/>
+                            <rect key="frame" x="56" y="12.5" width="301" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="tzX-ch-Mfp"/>
                             </constraints>
@@ -50,17 +50,33 @@
                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sG7-zk-OPD">
+                            <rect key="frame" x="12" y="12" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="96w-GG-c7w"/>
+                                <constraint firstAttribute="height" constant="35" id="G4m-tT-Mkj"/>
+                            </constraints>
+                            <color key="tintColor" name="#2F385D"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="plus.circle" catalog="system"/>
+                            <connections>
+                                <action selector="createChatButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="ciz-wB-8NO"/>
+                                <action selector="searchButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="Ec0-hZ-ULv"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="0Lt-mF-EIh" firstAttribute="leading" secondItem="aDd-xC-ljH" secondAttribute="leading" constant="16" id="1Rv-HX-I2t"/>
+                        <constraint firstItem="sG7-zk-OPD" firstAttribute="centerY" secondItem="WFJ-vk-nfR" secondAttribute="centerY" id="6Pq-yb-Rt6"/>
                         <constraint firstAttribute="bottom" secondItem="0Lt-mF-EIh" secondAttribute="bottom" id="D8Q-Sq-Wox"/>
+                        <constraint firstItem="sG7-zk-OPD" firstAttribute="leading" secondItem="aDd-xC-ljH" secondAttribute="leading" constant="12" id="Ftk-NW-j51"/>
                         <constraint firstItem="ghS-XH-UpB" firstAttribute="centerY" secondItem="WFJ-vk-nfR" secondAttribute="centerY" id="GeB-zr-5I6"/>
                         <constraint firstItem="WFJ-vk-nfR" firstAttribute="top" secondItem="aDd-xC-ljH" secondAttribute="top" constant="12" id="WNO-DE-1Xe"/>
                         <constraint firstAttribute="height" constant="100" id="aNX-Na-KaF"/>
                         <constraint firstItem="WFJ-vk-nfR" firstAttribute="leading" secondItem="ghS-XH-UpB" secondAttribute="trailing" constant="10" id="gR2-7v-wtY"/>
                         <constraint firstAttribute="trailing" secondItem="0Lt-mF-EIh" secondAttribute="trailing" constant="16" id="lyt-6R-yIb"/>
-                        <constraint firstItem="ghS-XH-UpB" firstAttribute="leading" secondItem="aDd-xC-ljH" secondAttribute="leading" constant="16" id="vuc-rK-heA"/>
+                        <constraint firstItem="ghS-XH-UpB" firstAttribute="leading" secondItem="aDd-xC-ljH" secondAttribute="leading" constant="56" id="vuc-rK-heA"/>
                         <constraint firstAttribute="trailing" secondItem="WFJ-vk-nfR" secondAttribute="trailing" constant="12" id="zIf-Um-dyg"/>
                     </constraints>
                 </view>
@@ -94,6 +110,7 @@
     </objects>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <namedColor name="#2F385D">
             <color red="0.18431372549019609" green="0.2196078431372549" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

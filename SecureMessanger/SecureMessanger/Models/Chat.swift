@@ -10,7 +10,7 @@ import UIKit
 struct Chat: Codable {
     let user: User?
     let lastMessage: LastMessage?
-    let members: [User]
+    let members: [ChatMember]
     let chat: ChatEntity
 }
 
@@ -32,6 +32,16 @@ struct LastMessage: Codable {
     let message: String
     let fromUserName: String
     let fromUserAvatarFileId: Int?
+}
+
+struct ChatMember: Codable {
+    let userId: Int
+    let fromUserId: Int
+    let userName: String
+    let userHash: String
+    let userPhone: String
+    let userDescription: String?
+    let type: Int
 }
 
 struct User: Codable {

@@ -29,6 +29,7 @@ class ChatListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        tabBarController?.tabBar.isHidden = false
         fetchChats()
     
     }
@@ -64,6 +65,10 @@ class ChatListViewController: UIViewController {
             self?.fetchChats(showRefresh: false)
             
         }
+        
+        rootView?.createChatAction = { [weak self] in
+            self?.showCreateChatVC()
+        }
     }
     
     private func loadCurrentUser() {
@@ -88,7 +93,18 @@ class ChatListViewController: UIViewController {
             CredentialManager.sharedInstance.currentUser = user
         }
     }
+    
+    private func showCreateChatVC() {
+        let vc = CreateChatViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
    
+    
+    private func showChatVC(chat: Chat) {
+        let vc = ChatViewController()
+        vc.chat = chat
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
@@ -103,6 +119,13 @@ extension ChatListViewController: RootViewGettable {
 extension ChatListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row < chats.count {
+            showChatVC(chat: chats[indexPath.row])
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
     }
 }
 

@@ -8,9 +8,14 @@
 import UIKit
 
 class ChatView: UIView {
+    
+    var backAction: (() -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
+    @IBAction func backButtonPressed(_ sender: Any) {
+        backAction?()
+    }
 }

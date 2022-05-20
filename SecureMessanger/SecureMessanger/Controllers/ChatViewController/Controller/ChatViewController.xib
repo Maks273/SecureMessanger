@@ -32,6 +32,9 @@
                             <color key="tintColor" name="#2F385D"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" image="chevron.left" catalog="system"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="aa5-Tg-YH2"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maksym Paidych" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBR-I3-P9T">
                             <rect key="frame" x="49" y="21.5" width="311" height="17.5"/>

@@ -30,6 +30,15 @@
 		2D6244F7283563150094DD04 /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F6283563150094DD04 /* DictionaryDecoder.swift */; };
 		2D6244F928356C870094DD04 /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244F828356C870094DD04 /* UpdateUserRequest.swift */; };
 		2D6244FB283688520094DD04 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244FA283688520094DD04 /* Date+Extension.swift */; };
+		2D62450128368E450094DD04 /* CreateChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6244FF28368E450094DD04 /* CreateChatViewController.swift */; };
+		2D62450228368E450094DD04 /* CreateChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D62450028368E450094DD04 /* CreateChatViewController.xib */; };
+		2D62450428368E520094DD04 /* CreateChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62450328368E520094DD04 /* CreateChatView.swift */; };
+		2D62450A2836A69A0094DD04 /* FindMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6245082836A69A0094DD04 /* FindMemberViewController.swift */; };
+		2D62450B2836A69A0094DD04 /* FindMemberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6245092836A69A0094DD04 /* FindMemberViewController.xib */; };
+		2D62450D2836A6A80094DD04 /* FindMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62450C2836A6A80094DD04 /* FindMemberView.swift */; };
+		2D6245112836A8B90094DD04 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62450F2836A8B90094DD04 /* MemberTableViewCell.swift */; };
+		2D6245122836A8B90094DD04 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6245102836A8B90094DD04 /* MemberTableViewCell.xib */; };
+		2D6245142836B3FE0094DD04 /* CreateChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6245132836B3FE0094DD04 /* CreateChatRequest.swift */; };
 		2D72CF8727E78548002D2924 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */; };
 		2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */; };
 		2D72CF8D27E78978002D2924 /* ContactsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */; };
@@ -83,6 +92,15 @@
 		2D6244F6283563150094DD04 /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
 		2D6244F828356C870094DD04 /* UpdateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRequest.swift; sourceTree = "<group>"; };
 		2D6244FA283688520094DD04 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		2D6244FF28368E450094DD04 /* CreateChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatViewController.swift; sourceTree = "<group>"; };
+		2D62450028368E450094DD04 /* CreateChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateChatViewController.xib; sourceTree = "<group>"; };
+		2D62450328368E520094DD04 /* CreateChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatView.swift; sourceTree = "<group>"; };
+		2D6245082836A69A0094DD04 /* FindMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMemberViewController.swift; sourceTree = "<group>"; };
+		2D6245092836A69A0094DD04 /* FindMemberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindMemberViewController.xib; sourceTree = "<group>"; };
+		2D62450C2836A6A80094DD04 /* FindMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMemberView.swift; sourceTree = "<group>"; };
+		2D62450F2836A8B90094DD04 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
+		2D6245102836A8B90094DD04 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTableViewCell.xib; sourceTree = "<group>"; };
+		2D6245132836B3FE0094DD04 /* CreateChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatRequest.swift; sourceTree = "<group>"; };
 		2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsListViewController.xib; sourceTree = "<group>"; };
@@ -165,6 +183,8 @@
 		2D5F16B027E4CE940089E504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D6245052836A6790094DD04 /* FindMemberViewController */,
+				2D6244FC28368E1A0094DD04 /* CreateChatViewController */,
 				2D86B31027E89E62001B44E6 /* ChatViewController */,
 				2D72CF9627E798D1002D2924 /* SettingsViewController */,
 				2D72CF8827E78956002D2924 /* ContactsListViewController */,
@@ -185,6 +205,7 @@
 				2DC3B7D627E778F200B5DC24 /* Chat.swift */,
 				2D6244F4283562FA0094DD04 /* ApiErrors.swift */,
 				2D6244F828356C870094DD04 /* UpdateUserRequest.swift */,
+				2D6245132836B3FE0094DD04 /* CreateChatRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +324,68 @@
 				2D5F16D427E4EA550089E504 /* ConfirmPhoneNumberViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D6244FC28368E1A0094DD04 /* CreateChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D62450E2836A8A20094DD04 /* TableViewCells */,
+				2D6244FE28368E330094DD04 /* Controller */,
+				2D6244FD28368E2E0094DD04 /* View */,
+			);
+			path = CreateChatViewController;
+			sourceTree = "<group>";
+		};
+		2D6244FD28368E2E0094DD04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D62450328368E520094DD04 /* CreateChatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D6244FE28368E330094DD04 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D6244FF28368E450094DD04 /* CreateChatViewController.swift */,
+				2D62450028368E450094DD04 /* CreateChatViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D6245052836A6790094DD04 /* FindMemberViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D6245072836A68E0094DD04 /* Controller */,
+				2D6245062836A6890094DD04 /* View */,
+			);
+			path = FindMemberViewController;
+			sourceTree = "<group>";
+		};
+		2D6245062836A6890094DD04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D62450C2836A6A80094DD04 /* FindMemberView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D6245072836A68E0094DD04 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D6245082836A69A0094DD04 /* FindMemberViewController.swift */,
+				2D6245092836A69A0094DD04 /* FindMemberViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D62450E2836A8A20094DD04 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2D62450F2836A8B90094DD04 /* MemberTableViewCell.swift */,
+				2D6245102836A8B90094DD04 /* MemberTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		2D72CF8827E78956002D2924 /* ContactsListViewController */ = {
@@ -551,13 +634,16 @@
 				2D5F16C927E4D9E20089E504 /* LoginViewController.xib in Resources */,
 				2D86B31627E89EBA001B44E6 /* ChatViewController.xib in Resources */,
 				2D72CF9C27E798F2002D2924 /* SettingsViewController.xib in Resources */,
+				2D6245122836A8B90094DD04 /* MemberTableViewCell.xib in Resources */,
 				2DC3B7D527E778BE00B5DC24 /* ChatListTableViewCell.xib in Resources */,
+				2D62450B2836A69A0094DD04 /* FindMemberViewController.xib in Resources */,
 				2D5F16A927E4CD3B0089E504 /* LaunchScreen.storyboard in Resources */,
 				2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */,
 				2DC3B7CD27E7764600B5DC24 /* ChatListViewController.xib in Resources */,
 				2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */,
 				2D5F16A627E4CD3B0089E504 /* Assets.xcassets in Resources */,
 				2D5F16BA27E4CFF90089E504 /* WelcomeViewController.xib in Resources */,
+				2D62450228368E450094DD04 /* CreateChatViewController.xib in Resources */,
 				2D72CF8D27E78978002D2924 /* ContactsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,21 +705,26 @@
 				2DC3B7CC27E7764600B5DC24 /* ChatListViewController.swift in Sources */,
 				2D86B31827E89EC4001B44E6 /* ChatView.swift in Sources */,
 				2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */,
+				2D62450128368E450094DD04 /* CreateChatViewController.swift in Sources */,
 				2D72CF8727E78548002D2924 /* MainTabBarViewController.swift in Sources */,
 				2DC3B7C327E734B000B5DC24 /* ProfileSettingsViewController.swift in Sources */,
 				2DE2293C2827EFF800C7776A /* User.swift in Sources */,
 				2D5F16CD27E4DA040089E504 /* LoginView.swift in Sources */,
 				2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */,
 				2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */,
+				2D6245112836A8B90094DD04 /* MemberTableViewCell.swift in Sources */,
 				2D5F16C827E4D9E20089E504 /* LoginViewController.swift in Sources */,
+				2D62450428368E520094DD04 /* CreateChatView.swift in Sources */,
 				2DC3B7C627E76F6B00B5DC24 /* UITextView+Extension.swift in Sources */,
 				2D6244F7283563150094DD04 /* DictionaryDecoder.swift in Sources */,
 				2D6244F928356C870094DD04 /* UpdateUserRequest.swift in Sources */,
 				2D47E203282EB6C000AE258E /* String+Extension.swift in Sources */,
 				2D5F16BE27E4D18B0089E504 /* UIView+Extension.swift in Sources */,
 				2D5F16BC27E4D0220089E504 /* WelcomeView.swift in Sources */,
+				2D62450A2836A69A0094DD04 /* FindMemberViewController.swift in Sources */,
 				2D5F16CF27E4E7F30089E504 /* UIViewController+Extension.swift in Sources */,
 				2D72CF9E27E7991A002D2924 /* SettingsView.swift in Sources */,
+				2D62450D2836A6A80094DD04 /* FindMemberView.swift in Sources */,
 				2D5F16C427E4D9720089E504 /* NavigationService.swift in Sources */,
 				2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */,
 				2D6244FB283688520094DD04 /* Date+Extension.swift in Sources */,
@@ -645,6 +736,7 @@
 				2DC3B7CF27E7769100B5DC24 /* ChatListView.swift in Sources */,
 				2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */,
 				2DE229392827EF7C00C7776A /* ApiService.swift in Sources */,
+				2D6245142836B3FE0094DD04 /* CreateChatRequest.swift in Sources */,
 				2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
