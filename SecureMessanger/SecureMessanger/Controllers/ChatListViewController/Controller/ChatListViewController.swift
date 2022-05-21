@@ -119,6 +119,23 @@ class ChatListViewController: UIViewController {
         rootView?.reloadTableView()
     }
     
+    private func deleteChat(with id: Int) {
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.deleteChat(chatId: id) { [weak self] success, error in
+            progress.hide(animated: true)
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else if success == true {
+                self.searchedChats.removeAll(where: { $0.chat.id == id })
+                self.chats.removeAll(where: { $0.chat.id == id })
+                self.rootView?.reloadTableView()
+            }
+        }
+    }
+    
 }
 
 //MARK: - RootViewGettable
@@ -139,6 +156,20 @@ extension ChatListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard indexPath.row < searchedChats.count else { return nil }
+        
+        let chat = searchedChats[indexPath.row]
+    
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
+            self?.deleteChat(with: chat.chat.id)
+        }
+        
+        let me = chat.members.first(where: { $0.userId == CredentialManager.sharedInstance.currentUser?.id })
+        
+        return chat.chat.type == 1 || me?.type == 1 ? UISwipeActionsConfiguration(actions: [deleteAction]) : nil // private chat || i'm an admin
     }
 }
 
