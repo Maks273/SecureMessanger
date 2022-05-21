@@ -55,7 +55,7 @@ class ConversationViewController: MessagesViewController {
         }
     }
     
-    func updateMessagesList(result: [Message], lastMessageId: Int?) {
+   private func updateMessagesList(result: [Message], lastMessageId: Int?) {
         if lastMessageId == nil {
             self.messageList = []
         }
@@ -64,7 +64,7 @@ class ConversationViewController: MessagesViewController {
         self.messagesCollectionView.scrollToLastItem()
     }
     
-    func insetMessagesInList(result: [Message], lastMessageId: Int?) {
+    private func insetMessagesInList(result: [Message], lastMessageId: Int?) {
         if lastMessageId == nil {
             messageList = []
         }
@@ -78,17 +78,12 @@ class ConversationViewController: MessagesViewController {
         }
     }
     
-    func refreshLatestMessages() {
-        
-    }
-    
-    
-    @objc func loadMoreMessages() {
+    @objc private func loadMoreMessages() {
         guard let topMessage = messageList.first else { return }
         loadMessages(lastMessageId: Int(topMessage.messageId), showProgress: false)
     }
     
-    func configureMessageCollectionView() {
+    private func configureMessageCollectionView() {
 
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -169,10 +164,36 @@ class ConversationViewController: MessagesViewController {
         return super.collectionView(collectionView, cellForItemAt: indexPath)
     }
     
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] actions in
+            guard let self = self else { return nil }
+            
+            let deleteAction = UIAction(title: "Remove", image: UIImage(systemName: "trash.fill")) { [weak self] action in
+                guard let self = self, indexPath.section < self.messageList.count, let messageID = Int(self.messageList[indexPath.section].messageId) else { return }
+                self.deleteMessage(id: messageID, at: indexPath.section)
+            }
+            return UIMenu(title: "", children: [deleteAction])
+        }
+    }
     
-    // MARK: - MessagesDataSource
+    private func deleteMessage(id: Int, at index: Int) {
+        guard let chatId = chatId else { return }
+        
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.deleteMessage(messageId: id, chatId: chatId) { [weak self] success, error in
+            progress.hide(animated: true)
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else if success == true {
+                self.messageList.remove(at: index)
+                self.messagesCollectionView.reloadData()
+            }
+        }
+    }
 
-    
 
 }
 
