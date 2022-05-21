@@ -44,13 +44,37 @@ class ConversationViewController: MessagesViewController {
         
         ApiService.shared.fetchMessages(chatId: chatId, lastMessageId: lastMessageId) { [weak self] response, error in
             progress?.hide(animated: true)
+            self?.refreshControl.endRefreshing()
             guard let self = self else { return }
             
             if let error = error {
                 self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
             } else if let response = response {
-                
+                lastMessageId == nil ? self.updateMessagesList(result: response.list, lastMessageId: lastMessageId) : self.insetMessagesInList(result: response.list, lastMessageId: lastMessageId)
             }
+        }
+    }
+    
+    func updateMessagesList(result: [Message], lastMessageId: Int?) {
+        if lastMessageId == nil {
+            self.messageList = []
+        }
+        self.messageList.append(contentsOf: result.map { DisplayMessage(from: $0) }.reversed())
+        self.messagesCollectionView.reloadData()
+        self.messagesCollectionView.scrollToLastItem()
+    }
+    
+    func insetMessagesInList(result: [Message], lastMessageId: Int?) {
+        if lastMessageId == nil {
+            messageList = []
+        }
+        
+        messageList.insert(contentsOf: result.map { DisplayMessage(from: $0) }.reversed(), at: 0)
+ 
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.messagesCollectionView.reloadDataAndKeepOffset()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -60,7 +84,8 @@ class ConversationViewController: MessagesViewController {
     
     
     @objc func loadMoreMessages() {
-        
+        guard let topMessage = messageList.first else { return }
+        loadMessages(lastMessageId: Int(topMessage.messageId), showProgress: false)
     }
     
     func configureMessageCollectionView() {

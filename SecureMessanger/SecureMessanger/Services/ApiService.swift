@@ -255,15 +255,15 @@ class ApiService {
 
         let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
         
-        let dict = ["pageSize": 20, "chatId": chatId, "order": 2]
+        let dict = ["pageSize": 2, "chatId": chatId, "order": 2, "lastMessageId": lastMessageId]
         
         AF.request(baseURL.appending("\(hash)/\(udid)/chat/message/load"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
             switch response.result {
             case .success(let result):
                 print("")
                 if let dict = result as? [String: Any], let data = dict["data"] as? [String: Any] {
-                   // let message = try? DictionaryDecoder.shared.decode(MessagesResponse.self, from: data)
-                    completion(nil, nil)
+                    let message = try? DictionaryDecoder.shared.decode(MessagesResponse.self, from: data)
+                    completion(message, nil)
                 }else {
                     completion(nil, ApiErrors.unavailableDecode)
                 }
