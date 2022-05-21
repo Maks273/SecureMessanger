@@ -109,15 +109,22 @@ struct ImageMediaItem: MediaItem {
 }
 
 struct ChatUser: SenderType, Equatable {
+    static func == (lhs: ChatUser, rhs: ChatUser) -> Bool {
+        return lhs.senderId == rhs.senderId
+    }
+    
     var senderId: String
     var displayName: String
     var isMy: Bool = false
     var imageURL: String?
     
+    var user: User
+    
     init(from user: User) {
+        self.user = user
         self.senderId = "\(user.id)"
         self.displayName = user.name  ?? "No name"
-        self.imageURL = "user.userImage"
+        self.imageURL = user.avatarUrl
         self.isMy = user.id == CredentialManager.sharedInstance.currentUser?.id
     }
     

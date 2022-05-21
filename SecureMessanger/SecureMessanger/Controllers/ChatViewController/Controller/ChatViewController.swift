@@ -111,7 +111,7 @@ class ChatViewController: UIViewController {
             return
         }
        
-        conversationViewController.chatId = chat?.chat.id
+        conversationViewController.chat = chat
         conversationViewController.willMove(toParent: self)
         addChild(conversationViewController)
         conversationViewController.view.frame.size = rootView!.chatContainerView.frame.size

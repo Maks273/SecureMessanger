@@ -32,6 +32,6 @@ extension Int {
     }
     
     func dateFromTimestamp() -> Date {
-       return Date(timeIntervalSince1970: TimeInterval(self))
+       return Date(timeIntervalSince1970: TimeInterval(self/1000)) //timestamp in miliseconds
     }
 }

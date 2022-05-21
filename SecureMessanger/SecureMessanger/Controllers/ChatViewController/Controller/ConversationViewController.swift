@@ -8,11 +8,12 @@
 import UIKit
 import MessageKit
 import MBProgressHUD
+import SDWebImage
  
 class ConversationViewController: MessagesViewController {
         
     let outgoingAvatarOverlap: CGFloat = 0
-    var chatId: Int?
+    var chat: Chat?
     var offset = 1
     var nextAvailability: Bool = false
     private var messageList: [DisplayMessage] = []
@@ -34,8 +35,8 @@ class ConversationViewController: MessagesViewController {
        
     }
     
-    func loadMessages(lastMessageId: Int? = nil, showProgress: Bool = true) {
-        guard let chatId = chatId else { return }
+    private func loadMessages(lastMessageId: Int? = nil, showProgress: Bool = true) {
+        guard let chatId = chat?.chat.id else { return }
         var progress: MBProgressHUD?
         
         if showProgress {
@@ -119,14 +120,12 @@ class ConversationViewController: MessagesViewController {
     
     func isPreviousMessageSameSender(at indexPath: IndexPath) -> Bool {
         guard indexPath.section - 1 >= 0 else { return false }
-        return true
-       // messageList[indexPath.section].user == messageList[indexPath.section - 1].user
+        return messageList[indexPath.section].user == messageList[indexPath.section - 1].user
     }
     
     func isNextMessageSameSender(at indexPath: IndexPath) -> Bool {
         guard indexPath.section + 1 < messageList.count else { return false }
-        return true
-        //messageList[indexPath.section].user == messageList[indexPath.section + 1].user
+        return messageList[indexPath.section].user == messageList[indexPath.section + 1].user
     }
     
     func insertMessage(_ message: DisplayMessage) {
@@ -177,7 +176,7 @@ class ConversationViewController: MessagesViewController {
     }
     
     private func deleteMessage(id: Int, at index: Int) {
-        guard let chatId = chatId else { return }
+        guard let chatId = chat?.chat.id else { return }
         
         let progress = MBProgressHUD.showAdded(to: view, animated: true)
         
@@ -192,6 +191,12 @@ class ConversationViewController: MessagesViewController {
                 self.messagesCollectionView.reloadData()
             }
         }
+    }
+    
+    private func showUserProfileVC(_ user: User) {
+        let vc = ProfileDetailViewController()
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 
@@ -227,7 +232,7 @@ extension ConversationViewController: MessagesDisplayDelegate {
     // MARK: - All Messages
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .red : UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        return isFromCurrentSender(message: message) ? UIColor(red: 47/255, green: 56/255, blue: 93/255, alpha: 1) : UIColor(red: 228.0/255.0, green: 228.0/255.0, blue: 228.0/255.0, alpha: 1.0)
     }
 
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
@@ -250,9 +255,16 @@ extension ConversationViewController: MessagesDisplayDelegate {
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        avatarView.isHidden = true
-        //avatarView.isHidden = isNextMessageSameSender(at: indexPath)
-       // avatarView.setImageForName(message.sender.displayName, circular: true, textAttributes: nil)
+        if isFromCurrentSender(message: message) || isNextMessageSameSender(at: indexPath) {
+            avatarView.isHidden = true
+        }else {
+            avatarView.sd_setImage(with: URL(string: messageList[indexPath.section].user.imageURL ?? ""), completed: { image, error, type, url in
+                if image != nil {
+                    avatarView.isHidden = false
+                    avatarView.image = image
+                }
+            })
+        }
     }
     
 }
@@ -266,7 +278,10 @@ extension ConversationViewController: MessagesLayoutDelegate {
     }
     
     func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 18
+        if !isPreviousMessageSameSender(at: indexPath) {
+            return 12.0
+        }
+        return 0
     }
 
     func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
@@ -297,21 +312,27 @@ extension ConversationViewController: MessagesDataSource {
     }
     
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        let name = message.sender.displayName
-        
+        if chat?.chat.type == 2 {
+            if !isFromCurrentSender(message: message) && !isPreviousMessageSameSender(at: indexPath) {
+                let name = message.sender.displayName
+                return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont(name: "Arial Hebrew Bold", size: 10)!, NSAttributedString.Key.foregroundColor: UIColor(red: 47/255, green: 56/255, blue: 93/255, alpha: 1)])
+            }
+        }
         return nil
     }
 
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-       
-        return nil
+        return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: messageList[indexPath.section].sentDate), attributes: [NSAttributedString.Key.font: UIFont(name: "Arial Hebrew Bold", size: 10)!, NSAttributedString.Key.foregroundColor: UIColor(red: 47/255, green: 56/255, blue: 93/255, alpha: 1)])
     }
 
 }
 
 extension ConversationViewController: MessageCellDelegate {
     func didTapAvatar(in cell: MessageCollectionViewCell) {
-        
+        if let indexPath = messagesCollectionView.indexPath(for: cell) {
+            let message = messageList[indexPath.section]
+            showUserProfileVC(message.user.user)
+        }
     }
 
     func didTapImage(in cell: MessageCollectionViewCell) {
