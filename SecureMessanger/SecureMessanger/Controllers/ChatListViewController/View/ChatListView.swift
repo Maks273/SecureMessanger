@@ -22,6 +22,11 @@ class ChatListView: UIView {
         didSet {
             searchTextField.isHidden = !isSearchMode
             searchButton.setImage(UIImage(systemName: isSearchMode ? "xmark.circle" : "magnifyingglass"), for: .normal)
+            if isSearchMode {
+                searchTextField.resignFirstResponder()
+            } else {
+                searchTextField.endEditing(true)
+            }
         }
     }
     

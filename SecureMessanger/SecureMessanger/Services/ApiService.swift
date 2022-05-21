@@ -199,4 +199,82 @@ class ApiService {
         }
     }
     
+    func fetchChat(id: Int, completion: @escaping (_ chat: Chat?, _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/chat/\(id)"), method: .get, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let data = dict["data"] as? [String: Any] {
+                    let chat = try? DictionaryDecoder.shared.decode(Chat.self, from: data)
+                    completion(chat, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+    
+    }
+    
+    func sendMessage(model: CreateMessageRequest, completion: @escaping (_ message: Message?, _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+        
+        let dict = model.dict
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/chat/message/add"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let data = dict["data"] as? [String: Any] {
+                    let message = try? DictionaryDecoder.shared.decode(Message.self, from: data)
+                    completion(message, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+    }
+    
+    func fetchMessages(chatId: Int, lastMessageId: Int?, completion: @escaping (_ message: MessagesResponse?, _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+        
+        let dict = ["pageSize": 20, "chatId": chatId, "order": 2]
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/chat/message/load"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                print("")
+                if let dict = result as? [String: Any], let data = dict["data"] as? [String: Any] {
+                   // let message = try? DictionaryDecoder.shared.decode(MessagesResponse.self, from: data)
+                    completion(nil, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+    }
+    
 }

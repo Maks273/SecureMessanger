@@ -17,6 +17,6 @@ extension ApiErrors {
 
 extension ApiErrors: LocalizedError {
     var errorDescription: String? {
-        return message
+        return message.capitalized
     }
 }

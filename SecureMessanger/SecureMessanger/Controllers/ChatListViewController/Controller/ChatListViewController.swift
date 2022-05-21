@@ -13,7 +13,12 @@ class ChatListViewController: UIViewController {
     //MARK: - Variables
     
     private let dispatchGroup = DispatchGroup()
-    private var chats: [Chat] = []
+    private var searchedChats: [Chat] = []
+    private var chats: [Chat] = [] {
+        didSet {
+            searchedChats = chats
+        }
+    }
  
     //MARK: - Life cycles
     
@@ -106,6 +111,14 @@ class ChatListViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    private func performChatSearch(_ text: String) {
+        searchedChats = chats.filter { $0.chat.name.contains(text) }
+        if text.isEmpty {
+            searchedChats = chats
+        }
+        rootView?.reloadTableView()
+    }
+    
 }
 
 //MARK: - RootViewGettable
@@ -119,8 +132,8 @@ extension ChatListViewController: RootViewGettable {
 extension ChatListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row < chats.count {
-            showChatVC(chat: chats[indexPath.row])
+        if indexPath.row < searchedChats.count {
+            showChatVC(chat: searchedChats[indexPath.row])
         }
     }
     
@@ -133,16 +146,32 @@ extension ChatListViewController: UITableViewDelegate {
 
 extension ChatListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chats.count
+        return searchedChats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: rootView!.chatCellID, for: indexPath) as! ChatListTableViewCell
-        if indexPath.row < chats.count {
-            cell.configure(with: chats[indexPath.row])
+        if indexPath.row < searchedChats.count {
+            cell.configure(with: searchedChats[indexPath.row])
         }
         return cell
     }
     
+    
+}
+
+extension ChatListViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        performChatSearch(textField.text ?? "")
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let textFieldRange = NSRange(location: 0, length: textField.text?.count ?? 0)
+        if NSEqualRanges(range, textFieldRange) && string.isEmpty {
+            performChatSearch("")
+        }
+        return true
+    }
     
 }

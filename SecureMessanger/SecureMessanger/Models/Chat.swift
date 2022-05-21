@@ -40,6 +40,7 @@ struct ChatMember: Codable {
     let userName: String
     let userHash: String
     let userPhone: String
+    let userPublicKey: String
     let userDescription: String?
     let type: Int
 }

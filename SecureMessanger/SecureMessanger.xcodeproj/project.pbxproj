@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1893902839082C006A2D64 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18938F2839082C006A2D64 /* Message.swift */; };
 		2D47E203282EB6C000AE258E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E202282EB6C000AE258E /* String+Extension.swift */; };
 		2D47E20B282EBA5100AE258E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47E20A282EBA5100AE258E /* CryptoSwift */; };
 		2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F169C27E4CD390089E504 /* AppDelegate.swift */; };
@@ -39,6 +40,8 @@
 		2D6245112836A8B90094DD04 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62450F2836A8B90094DD04 /* MemberTableViewCell.swift */; };
 		2D6245122836A8B90094DD04 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6245102836A8B90094DD04 /* MemberTableViewCell.xib */; };
 		2D6245142836B3FE0094DD04 /* CreateChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6245132836B3FE0094DD04 /* CreateChatRequest.swift */; };
+		2D6245162837A5620094DD04 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6245152837A5620094DD04 /* ConversationViewController.swift */; };
+		2D6245182837EEF50094DD04 /* CreateMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6245172837EEF50094DD04 /* CreateMessageRequest.swift */; };
 		2D72CF8727E78548002D2924 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */; };
 		2D72CF8C27E78978002D2924 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */; };
 		2D72CF8D27E78978002D2924 /* ContactsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */; };
@@ -68,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D18938F2839082C006A2D64 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2D47E202282EB6C000AE258E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2D5F169927E4CD390089E504 /* SecureMessanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureMessanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5F169C27E4CD390089E504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		2D62450F2836A8B90094DD04 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		2D6245102836A8B90094DD04 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTableViewCell.xib; sourceTree = "<group>"; };
 		2D6245132836B3FE0094DD04 /* CreateChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatRequest.swift; sourceTree = "<group>"; };
+		2D6245152837A5620094DD04 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		2D6245172837EEF50094DD04 /* CreateMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageRequest.swift; sourceTree = "<group>"; };
 		2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2D72CF8A27E78978002D2924 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		2D72CF8B27E78978002D2924 /* ContactsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsListViewController.xib; sourceTree = "<group>"; };
@@ -206,6 +212,8 @@
 				2D6244F4283562FA0094DD04 /* ApiErrors.swift */,
 				2D6244F828356C870094DD04 /* UpdateUserRequest.swift */,
 				2D6245132836B3FE0094DD04 /* CreateChatRequest.swift */,
+				2D6245172837EEF50094DD04 /* CreateMessageRequest.swift */,
+				2D18938F2839082C006A2D64 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -464,6 +472,7 @@
 			children = (
 				2D86B31327E89EBA001B44E6 /* ChatViewController.swift */,
 				2D86B31427E89EBA001B44E6 /* ChatViewController.xib */,
+				2D6245152837A5620094DD04 /* ConversationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -711,8 +720,10 @@
 				2DE2293C2827EFF800C7776A /* User.swift in Sources */,
 				2D5F16CD27E4DA040089E504 /* LoginView.swift in Sources */,
 				2D5F16D527E4EA550089E504 /* ConfirmPhoneNumberViewController.swift in Sources */,
+				2D6245162837A5620094DD04 /* ConversationViewController.swift in Sources */,
 				2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */,
 				2D6245112836A8B90094DD04 /* MemberTableViewCell.swift in Sources */,
+				2D1893902839082C006A2D64 /* Message.swift in Sources */,
 				2D5F16C827E4D9E20089E504 /* LoginViewController.swift in Sources */,
 				2D62450428368E520094DD04 /* CreateChatView.swift in Sources */,
 				2DC3B7C627E76F6B00B5DC24 /* UITextView+Extension.swift in Sources */,
@@ -736,6 +747,7 @@
 				2DC3B7CF27E7769100B5DC24 /* ChatListView.swift in Sources */,
 				2D72CF9427E78F40002D2924 /* ContactListTableViewCell.swift in Sources */,
 				2DE229392827EF7C00C7776A /* ApiService.swift in Sources */,
+				2D6245182837EEF50094DD04 /* CreateMessageRequest.swift in Sources */,
 				2D6245142836B3FE0094DD04 /* CreateChatRequest.swift in Sources */,
 				2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */,
 			);

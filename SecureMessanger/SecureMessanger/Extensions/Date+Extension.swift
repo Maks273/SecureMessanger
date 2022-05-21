@@ -27,9 +27,11 @@ extension Int {
     func dateStringFromTimestamp(with format: DateFormats) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(self))
         let dateFormatter = DateFormatter()
-        //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = format.rawValue
-        //dateFormatter.timeZone = TimeZone(abbreviation: "UTC")!
         return dateFormatter.string(from: date)
+    }
+    
+    func dateFromTimestamp() -> Date {
+       return Date(timeIntervalSince1970: TimeInterval(self))
     }
 }
