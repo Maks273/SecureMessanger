@@ -15,22 +15,27 @@ class ProfileDetailView: UIView {
     @IBOutlet private weak var connectButton: UIButton!
     
     var messageAction: (() -> Void)?
+    var connectAction: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    @IBAction func messageButtonPressed(_ sender: Any) {
+    @IBAction private func messageButtonPressed(_ sender: Any) {
         messageAction?()
     }
     
-    @IBAction func connectButtonPressed(_ sender: Any) {
-    
+    @IBAction private func connectButtonPressed(_ sender: Any) {
+        connectAction?()
     }
     
     
     func configure(model: User) {
         nameLabel.text = model.name
         phoneNumber.text = model.phone
+    }
+    
+    func setConnectButtonTitle(_ title: String) {
+        connectButton.setTitle(title, for: .normal)
     }
 }

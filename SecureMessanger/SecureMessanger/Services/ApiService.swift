@@ -326,4 +326,29 @@ class ApiService {
         }
     }
     
+    func fetchContacts(pageIndex: Int, pageSize: Int, completion: @escaping (_ response: ConstactsResponse?, _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+
+        let dict = ["pageIndex": pageIndex, "pageSize": pageSize]
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/user/contacts/load"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let data = dict["data"] as? [String: Any] {
+                    let response = try? DictionaryDecoder.shared.decode(ConstactsResponse.self, from: data)
+                    completion(response, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+    }
 }

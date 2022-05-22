@@ -17,6 +17,7 @@ class ContactsListView: UIView {
     
     //MARK: - Variables
     
+    var refreshAction: (() -> Void)?
     let contactCellID = "ContactListTableViewCell"
     private var isSearchMode: Bool = false {
         didSet {
@@ -40,10 +41,28 @@ class ContactsListView: UIView {
     
     //MARK: - Helper
     
+    func reloadData() {
+        tableView.reloadData()
+    }
+    
+    func stopRefreshing() {
+        tableView.refreshControl?.endRefreshing()
+    }
+    
     //MARK: - Private methods
     
     private func configureTableView() {
         tableView.register(UINib(nibName: contactCellID, bundle: nil), forCellReuseIdentifier: contactCellID)
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.refreshControl = refresh
     }
+    
+    @objc private func refreshTable() {
+        refreshAction?()
+    }
+    
+    
+    
 
 }
