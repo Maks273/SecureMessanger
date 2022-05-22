@@ -13,6 +13,8 @@ class ProfileDetailView: UIView {
     @IBOutlet private weak var phoneNumber: UITextField!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var connectButton: UIButton!
+    @IBOutlet private weak var messageButton: UIButton!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     var messageAction: (() -> Void)?
     var connectAction: (() -> Void)?
@@ -33,6 +35,9 @@ class ProfileDetailView: UIView {
     func configure(model: User) {
         nameLabel.text = model.name
         phoneNumber.text = model.phone
+        descriptionLabel.text = model.description
+        connectButton.isHidden = model.id == CredentialManager.sharedInstance.currentUser?.id
+        messageButton.isHidden = model.id == CredentialManager.sharedInstance.currentUser?.id
     }
     
     func setConnectButtonTitle(_ title: String) {

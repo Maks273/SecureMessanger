@@ -16,9 +16,9 @@ struct Chat: Codable {
 
 struct ChatEntity: Codable {
     let id: Int
-    let name: String
+    var name: String
     let type: Int
-    let avatarFileId: Int?
+    var avatarFileId: Int?
 }
 
 struct LastMessage: Codable {
@@ -42,6 +42,7 @@ struct ChatMember: Codable {
     let userPhone: String
     let userPublicKey: String
     let userDescription: String?
+    let userAvatarFileId: Int?
     var userIsContact: Bool
     let type: Int
 }

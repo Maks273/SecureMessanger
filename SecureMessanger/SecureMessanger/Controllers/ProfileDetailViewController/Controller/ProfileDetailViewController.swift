@@ -99,6 +99,7 @@ class ProfileDetailViewController: UIViewController {
             }else if success == true {
                 self.showAlert(title: "Success", message: "Successfuly added the user into your contacts", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
                 self.rootView?.setConnectButtonTitle("Delete")
+                self.user?.isContact = true
                 self.didUpdateUser?(self.user!)
             }
         }
@@ -118,6 +119,7 @@ class ProfileDetailViewController: UIViewController {
             }else if success == true {
                 self.showAlert(title: "Success", message: "Successfuly deleted the user from your contacts", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
                 self.rootView?.setConnectButtonTitle("Add")
+                self.user?.isContact = false
                 self.didUpdateUser?(self.user!)
             }
         }

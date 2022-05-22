@@ -40,7 +40,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O0X-QB-qEC">
-                                    <rect key="frame" x="16" y="241" width="382" height="40"/>
+                                    <rect key="frame" x="16" y="249" width="382" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="5Bw-o3-EPr"/>
@@ -50,7 +50,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wzq-O1-ghk">
-                                    <rect key="frame" x="16" y="297" width="382" height="50"/>
+                                    <rect key="frame" x="16" y="305" width="382" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCB-CK-HfH">
                                             <rect key="frame" x="0.0" y="0.0" width="183.5" height="50"/>
@@ -103,18 +103,27 @@
                                     <color key="textColor" name="#2F385D"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-az-jxi">
+                                    <rect key="frame" x="16" y="233" width="382" height="0.0"/>
+                                    <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="14"/>
+                                    <color key="textColor" name="#2F385D"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" name="#E9EFFD"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="L50-zg-JJk" secondAttribute="trailing" constant="10" id="9TW-q7-hxr"/>
+                                <constraint firstItem="fdn-az-jxi" firstAttribute="top" secondItem="L50-zg-JJk" secondAttribute="bottom" constant="8" id="AqN-aj-nez"/>
+                                <constraint firstAttribute="trailing" secondItem="fdn-az-jxi" secondAttribute="trailing" constant="16" id="Ejp-ng-qat"/>
                                 <constraint firstItem="HWA-Np-XTT" firstAttribute="centerX" secondItem="hdd-vq-L41" secondAttribute="centerX" id="PVA-lN-vvn"/>
+                                <constraint firstItem="fdn-az-jxi" firstAttribute="leading" secondItem="hdd-vq-L41" secondAttribute="leading" constant="16" id="V5F-E3-khX"/>
                                 <constraint firstItem="O0X-QB-qEC" firstAttribute="leading" secondItem="hdd-vq-L41" secondAttribute="leading" constant="16" id="WXK-fI-p6D"/>
                                 <constraint firstItem="HWA-Np-XTT" firstAttribute="top" secondItem="hdd-vq-L41" secondAttribute="top" constant="20" id="bIz-1q-Lka"/>
-                                <constraint firstItem="O0X-QB-qEC" firstAttribute="top" secondItem="L50-zg-JJk" secondAttribute="bottom" constant="16" id="d3p-9f-Gm3"/>
                                 <constraint firstAttribute="trailing" secondItem="wzq-O1-ghk" secondAttribute="trailing" constant="16" id="i5I-Wk-T5s"/>
                                 <constraint firstItem="L50-zg-JJk" firstAttribute="leading" secondItem="hdd-vq-L41" secondAttribute="leading" constant="10" id="jYa-BA-IZW"/>
                                 <constraint firstItem="wzq-O1-ghk" firstAttribute="leading" secondItem="hdd-vq-L41" secondAttribute="leading" constant="16" id="kxK-SY-gvy"/>
                                 <constraint firstAttribute="trailing" secondItem="O0X-QB-qEC" secondAttribute="trailing" constant="16" id="mx7-CC-Oam"/>
+                                <constraint firstItem="O0X-QB-qEC" firstAttribute="top" secondItem="fdn-az-jxi" secondAttribute="bottom" constant="16" id="pBc-VH-7jf"/>
                                 <constraint firstItem="wzq-O1-ghk" firstAttribute="top" secondItem="O0X-QB-qEC" secondAttribute="bottom" constant="16" id="tIa-Qr-FFK"/>
                                 <constraint firstItem="L50-zg-JJk" firstAttribute="top" secondItem="HWA-Np-XTT" secondAttribute="bottom" constant="25" id="ug0-Gp-Bpw"/>
                             </constraints>
@@ -145,6 +154,8 @@
             <connections>
                 <outlet property="avatarButton" destination="HWA-Np-XTT" id="ruy-BY-qhv"/>
                 <outlet property="connectButton" destination="MUH-sG-vy9" id="ZEs-o6-xFx"/>
+                <outlet property="descriptionLabel" destination="fdn-az-jxi" id="apo-Lc-6V3"/>
+                <outlet property="messageButton" destination="VCB-CK-HfH" id="r9r-ai-ART"/>
                 <outlet property="nameLabel" destination="L50-zg-JJk" id="2QW-UU-Mca"/>
                 <outlet property="phoneNumber" destination="O0X-QB-qEC" id="96P-C2-KBH"/>
             </connections>

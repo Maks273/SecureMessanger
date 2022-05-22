@@ -10,7 +10,7 @@ import UIKit
 class ChatDetailView: UIView {
     
     @IBOutlet private weak var avatarButton: UIButton!
-    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var phoneTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private var controlButtons: [UIButton]!
@@ -47,14 +47,14 @@ class ChatDetailView: UIView {
         addMemberAction?()
     }
     
-    func configure(chatName: String, imageURL: String, phoneNumber: String?) {
-        nameLabel.text = chatName
+    func configure(chatName: String, imageURL: String, phoneNumber: String?, isGroup: Bool) {
+        nameTextField.text = chatName
         phoneTextField.text = phoneNumber
-        phoneNumberHeightConstraint.constant = phoneNumber == nil ? 0 : 40
-        addMemberHeightConstraint.constant = phoneNumber != nil ? 0 : 50
-        addMembersButton.isHidden = phoneNumber != nil
-        controlButtons.first?.isHidden = phoneNumber != nil
-        
+        phoneNumberHeightConstraint.constant = isGroup ? 0 : 40
+        addMemberHeightConstraint.constant = !isGroup ? 0 : 50
+        addMembersButton.isHidden = !isGroup
+        controlButtons.first?.isHidden = !isGroup
+        nameTextField.isUserInteractionEnabled = isGroup
     }
     
     func changeSelectionStyle(index: Int) {

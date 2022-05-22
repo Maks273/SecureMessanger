@@ -38,7 +38,7 @@ class ChatDetailViewController: UIViewController {
     private func configureView() {
         guard let chat = chat?.chat else { return }
         let user = self.chat?.members.first(where: { $0.userId != CredentialManager.sharedInstance.currentUser?.id })
-        rootView?.configure(chatName: chat.name, imageURL: "", phoneNumber: chat.type == 1 ? user?.userPhone : nil)
+        rootView?.configure(chatName: chat.name, imageURL: "", phoneNumber: chat.type == 1 ? user?.userPhone : nil, isGroup: chat.type == 2)
         currentControlIndex = chat.type == 1 ? 1 : 0
         rootView?.addMemberAction = { [weak self] in
             self?.showFindMemberVC()
@@ -93,6 +93,34 @@ class ChatDetailViewController: UIViewController {
         }
     }
     
+    private func showUserProfileVC(_ user: User, at indexPath: IndexPath) {
+        let vc = ProfileDetailViewController()
+        vc.user = user
+        vc.didUpdateUser = { [weak self] user in
+            self?.chat?.members[indexPath.row].userIsContact = user.isContact
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func updateChatInfo(chatName: String?, avatarId: Int?) {
+        guard let chatId = chat?.chat.id else { return }
+        
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.updateChatInfo(chatId: chatId, chatName: chatName, avatarFileId: avatarId) { [weak self] success, error in
+            progress.hide(animated: true)
+            
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else if success == true {
+                self.view.endEditing(true)
+            }
+            
+        }
+        
+    }
     
 
 }
@@ -102,6 +130,16 @@ extension ChatDetailViewController: RootViewGettable {
 }
 
 extension ChatDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if currentControlIndex == 0 {
+            guard let member = chat?.members[indexPath.row] else { return }
+            showUserProfileVC(User(name: member.userName, phone: member.userPhone, id: member.userId, userPublicKey: member.userPublicKey, avatartFileId: member.userAvatarFileId, hash: "", description: member.userDescription ?? "", isContact: member.userIsContact), at: indexPath)
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -134,5 +172,12 @@ extension ChatDetailViewController: UITableViewDataSource {
             cell.configure(with: chat!.members[indexPath.row])
         }
         return cell
+    }
+}
+
+extension ChatDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        updateChatInfo(chatName: textField.text, avatarId: nil)
+        return true
     }
 }
