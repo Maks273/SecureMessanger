@@ -52,6 +52,10 @@ class ContactsListViewController: UIViewController {
             self?.pageIndex = 0
             self?.fetchContacts(showProgress: false)
         }
+        
+        rootView?.addContactAction = { [weak self] in
+            self?.showFindMemberVC()
+        }
     }
     
     private func updateContactsList(result: [User]) {
@@ -64,7 +68,19 @@ class ContactsListViewController: UIViewController {
     
     private func showContactProfile(user: User) {
         let vc = ProfileDetailViewController()
+        vc.didUpdateUser = { [weak self] user in
+            // remove or add into a contacts list
+        }
         vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func showFindMemberVC() {
+        let vc = FindMemberViewController()
+        vc.isChatFlow = false
+        vc.didSelectMember = { [weak self] member in
+            self?.showContactProfile(user: member)
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
     

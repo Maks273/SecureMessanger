@@ -32,9 +32,5 @@ struct User: Codable {
     let avatartFileId: Int?
     let hash: String
     var description: String
-}
-
-extension User {
-    static let vladimir = User(name: "Vladimir Zelenskij", phone: "", id: 2, userPublicKey: "", avatartFileId: 2, hash: "", description: "")
-    static let data: [User] = [vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir, vladimir]
+    var isContact: Bool
 }

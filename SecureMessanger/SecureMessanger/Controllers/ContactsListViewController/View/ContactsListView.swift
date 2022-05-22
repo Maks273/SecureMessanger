@@ -17,6 +17,7 @@ class ContactsListView: UIView {
     
     //MARK: - Variables
     
+    var addContactAction: (() -> Void)?
     var refreshAction: (() -> Void)?
     let contactCellID = "ContactListTableViewCell"
     private var isSearchMode: Bool = false {
@@ -37,6 +38,10 @@ class ContactsListView: UIView {
     
     @IBAction private func searchButtonPressed(_ sender: Any) {
         isSearchMode.toggle()
+    }
+    
+    @IBAction private func addContactButtonPressed(_ sender: Any) {
+        addContactAction?()
     }
     
     //MARK: - Helper

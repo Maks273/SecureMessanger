@@ -10,6 +10,7 @@ import MBProgressHUD
 
 class FindMemberViewController: UIViewController {
     
+    var isChatFlow: Bool = true
     var didSelectMember: ((User) -> Void)?
     private var user: User? {
         didSet {
@@ -21,6 +22,12 @@ class FindMemberViewController: UIViewController {
         super.viewDidLoad()
         setupDefaultBackButton()
         title = "Find member"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func searchMember(phoneNumber: String) {
@@ -59,7 +66,9 @@ extension FindMemberViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         if let user = user {
             didSelectMember?(user)
-            navigationController?.popViewController(animated: true)
+            if isChatFlow {
+                navigationController?.popViewController(animated: true)
+            }
         }
     }
     

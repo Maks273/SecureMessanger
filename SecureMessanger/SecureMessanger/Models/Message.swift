@@ -20,6 +20,8 @@ struct Message: Codable {
     let fileId: Int?
     let fromUserAvatarFileId: Int?
     let fromUserId: Int
+    let fromUserPhone: String
+    var fromUserIsContact: Bool
     
     let mediaType: String?
     
@@ -51,7 +53,7 @@ struct DisplayMessage: MessageType {
     
     private init(kind: MessageKind, message: Message) {
         self.kind = kind
-        self.user = ChatUser(from: User(name: message.fromUserName, phone: "", id: message.fromUserId, userPublicKey: nil, avatartFileId: message.fromUserAvatarFileId, hash: "", description: ""))
+        self.user = ChatUser(from: User(name: message.fromUserName, phone: message.fromUserPhone, id: message.fromUserId, userPublicKey: nil, avatartFileId: message.fromUserAvatarFileId, hash: "", description: "", isContact: message.fromUserIsContact))
         self.messageId = "\(message.id)"
         self.sentDate = message.timeStamp.dateFromTimestamp()
         self.message = message.message?.decodeMessage()
@@ -79,7 +81,7 @@ struct DisplayMessage: MessageType {
             kind = MessageKind.custom(mediaItem.url)
         }
         self.init(kind: kind, message: message)
-        self.user = ChatUser(from: User(name: message.fromUserName, phone: "", id: message.fromUserId, userPublicKey: nil, avatartFileId: message.fromUserAvatarFileId, hash: "", description: ""))
+        self.user = ChatUser(from: User(name: message.fromUserName, phone: message.fromUserPhone, id: message.fromUserId, userPublicKey: nil, avatartFileId: message.fromUserAvatarFileId, hash: "", description: "", isContact: message.fromUserIsContact))
         self.messageId = "\(message.id)"
         self.sentDate = message.timeStamp.dateFromTimestamp()
         self.message = message.message?.decodeMessage()

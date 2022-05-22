@@ -42,6 +42,7 @@ struct ChatMember: Codable {
     let userPhone: String
     let userPublicKey: String
     let userDescription: String?
+    var userIsContact: Bool
     let type: Int
 }
 

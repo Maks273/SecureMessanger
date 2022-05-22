@@ -87,9 +87,8 @@ class ChatListViewController: UIViewController {
         
         ApiService.shared.fetchUser(phone: phoneNumber, deviceInfo: udid) { [weak self] user, error in
             self?.dispatchGroup.leave()
-            guard let self = self else { return }
-            
             progress.hide(animated: true)
+            guard let self = self else { return }
             
             if let error = error {
                 self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
