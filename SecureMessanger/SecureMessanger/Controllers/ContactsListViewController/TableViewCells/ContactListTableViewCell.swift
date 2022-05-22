@@ -30,4 +30,8 @@ class ContactListTableViewCell: UITableViewCell {
         usernameLabel.text = model.name
     }
     
+    func configure(with chatMember: ChatMember) {
+        usernameLabel.text = chatMember.userName
+    }
+    
 }

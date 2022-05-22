@@ -170,6 +170,10 @@ extension ChatListViewController: UITableViewDelegate {
         
         return chat.chat.type == 1 || me?.type == 1 ? UISwipeActionsConfiguration(actions: [deleteAction]) : nil // private chat || i'm an admin
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return searchedChats.isEmpty ? tableView.frame.height/2 : 0
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -185,6 +189,12 @@ extension ChatListViewController: UITableViewDataSource {
             cell.configure(with: searchedChats[indexPath.row])
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = TableViewPlaceholderView()
+        view.configure(title: "No chats in your messages list")
+        return searchedChats.isEmpty ? view : nil
     }
     
     

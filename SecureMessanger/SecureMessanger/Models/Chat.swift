@@ -10,7 +10,7 @@ import UIKit
 struct Chat: Codable {
     let user: User?
     let lastMessage: LastMessage?
-    let members: [ChatMember]
+    var members: [ChatMember]
     let chat: ChatEntity
 }
 

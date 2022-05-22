@@ -64,13 +64,18 @@ class CreateChatViewController: UIViewController {
         var chatName: String?
         
         if chatType == 2 {
-            showTextFieldAlert(title: "Please, input a group chat name", okTitle: "Save") { text in
+            showTextFieldAlert(title: "Please, input a group chat name", okTitle: "Save") { [weak self] text in
                 chatName = text
+                self?.processCreateChat(chatName: chatName, chatType: chatType)
             }
         }else {
             chatName = nil
+            processCreateChat(chatName: chatName, chatType: chatType)
         }
         
+    }
+    
+    private func processCreateChat(chatName: String?, chatType: Int) {
         let chatEntity = CreateCharEntity(name: chatName, type: chatType)
         
         var membersEntities: [CreateChatMemberEntity] = []
@@ -95,8 +100,6 @@ class CreateChatViewController: UIViewController {
                 self.showChatVC(model: chat)
             }
         }
-        
-        
     }
     
     private func showChatVC(model: Chat?) {

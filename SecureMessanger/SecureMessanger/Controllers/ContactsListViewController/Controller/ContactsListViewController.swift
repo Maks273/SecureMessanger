@@ -105,6 +105,10 @@ extension ContactsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return contacts.isEmpty ? tableView.frame.height/2 : 0
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -127,6 +131,12 @@ extension ContactsListViewController: UITableViewDataSource {
             pageIndex += 1
             fetchContacts()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = TableViewPlaceholderView()
+        view.configure(title: "No contacts in your contacts list")
+        return contacts.isEmpty ? view : nil
     }
 }
 

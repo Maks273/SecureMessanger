@@ -50,8 +50,8 @@ class ChatViewController: UIViewController {
             self?.navigationController?.popViewController(animated: true)
         }
         
-        rootView?.avatarAction = {
-            
+        rootView?.avatarAction = { [weak self] in
+            self?.showChatDetailVC()
         }
         
         rootView?.sendAction = { [weak self] message in
@@ -190,6 +190,12 @@ class ChatViewController: UIViewController {
             self.rootView?.textView.resignFirstResponder()
             self.rootView?.textView.endEditing(true)
         }
+    }
+    
+    private func showChatDetailVC() {
+        let vc = ChatDetailViewController()
+        vc.chat = chat
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
