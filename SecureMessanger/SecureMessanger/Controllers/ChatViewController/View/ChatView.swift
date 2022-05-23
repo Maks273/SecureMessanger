@@ -43,6 +43,7 @@ class ChatView: UIView {
     
     func configureView(with chat: Chat) {
         chatNameLabel.text = chat.chat.name
+        chatAvatarButton.sd_setImage(with: URL(string: chat.chat.avatarURL ?? ""), for: .normal, placeholderImage: UIImage(systemName: Constants.chatPlaceholderImageName))
     }
     
     func setInputContainerHeight(_ height: CGFloat) {

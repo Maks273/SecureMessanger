@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileDetailView: UIView {
     
@@ -38,6 +39,7 @@ class ProfileDetailView: UIView {
         descriptionLabel.text = model.description
         connectButton.isHidden = model.id == CredentialManager.sharedInstance.currentUser?.id
         messageButton.isHidden = model.id == CredentialManager.sharedInstance.currentUser?.id
+        avatarButton.sd_setImage(with: URL(string: model.avatarUrl), for: .normal, placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     
     func setConnectButtonTitle(_ title: String) {

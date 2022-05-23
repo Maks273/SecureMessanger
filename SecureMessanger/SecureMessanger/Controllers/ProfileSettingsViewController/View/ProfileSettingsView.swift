@@ -53,7 +53,7 @@ class ProfileSettingsView: UIView {
     }
     
     func setUserImage(_ imageURL: String?) {
-        
+        avatarButton.sd_setImage(with: URL(string: imageURL ?? ""), for: .normal, placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     
     func getUserImage() -> UIImage? {

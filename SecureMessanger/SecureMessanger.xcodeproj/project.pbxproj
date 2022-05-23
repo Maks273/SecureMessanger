@@ -16,6 +16,7 @@
 		2D267128283AAAEA002F726E /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D267127283AAAEA002F726E /* ChatDetailView.swift */; };
 		2D26712B283AC3D0002F726E /* TableViewPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26712A283AC3D0002F726E /* TableViewPlaceholderView.swift */; };
 		2D26712D283AC3D6002F726E /* TableViewPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D26712C283AC3D6002F726E /* TableViewPlaceholderView.xib */; };
+		2D267134283C1AF8002F726E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D267133283C1AF8002F726E /* Constants.swift */; };
 		2D47E203282EB6C000AE258E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E202282EB6C000AE258E /* String+Extension.swift */; };
 		2D47E20B282EBA5100AE258E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47E20A282EBA5100AE258E /* CryptoSwift */; };
 		2D5F169D27E4CD390089E504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F169C27E4CD390089E504 /* AppDelegate.swift */; };
@@ -88,6 +89,7 @@
 		2D267127283AAAEA002F726E /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		2D26712A283AC3D0002F726E /* TableViewPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPlaceholderView.swift; sourceTree = "<group>"; };
 		2D26712C283AC3D6002F726E /* TableViewPlaceholderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewPlaceholderView.xib; sourceTree = "<group>"; };
+		2D267133283C1AF8002F726E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2D47E202282EB6C000AE258E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2D5F169927E4CD390089E504 /* SecureMessanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureMessanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5F169C27E4CD390089E504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				2D6245132836B3FE0094DD04 /* CreateChatRequest.swift */,
 				2D6245172837EEF50094DD04 /* CreateMessageRequest.swift */,
 				2D18938F2839082C006A2D64 /* Message.swift */,
+				2D267133283C1AF8002F726E /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				2D6244F7283563150094DD04 /* DictionaryDecoder.swift in Sources */,
 				2D6244F928356C870094DD04 /* UpdateUserRequest.swift in Sources */,
 				2D47E203282EB6C000AE258E /* String+Extension.swift in Sources */,
+				2D267134283C1AF8002F726E /* Constants.swift in Sources */,
 				2D18939928393817006A2D64 /* ProfileDetailView.swift in Sources */,
 				2D5F16BE27E4D18B0089E504 /* UIView+Extension.swift in Sources */,
 				2D5F16BC27E4D0220089E504 /* WelcomeView.swift in Sources */,

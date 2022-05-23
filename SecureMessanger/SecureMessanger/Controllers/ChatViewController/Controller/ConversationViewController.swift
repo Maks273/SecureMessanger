@@ -258,12 +258,13 @@ extension ConversationViewController: MessagesDisplayDelegate {
         if isFromCurrentSender(message: message) || isNextMessageSameSender(at: indexPath) {
             avatarView.isHidden = true
         }else {
-            avatarView.sd_setImage(with: URL(string: messageList[indexPath.section].user.imageURL ?? ""), completed: { image, error, type, url in
+            avatarView.backgroundColor = .clear
+            avatarView.sd_setImage(with: URL(string: messageList[indexPath.section].user.imageURL ?? ""), placeholderImage: UIImage(named: Constants.userPlacehoderImageName)) { image, error, type, url in
                 if image != nil {
                     avatarView.isHidden = false
                     avatarView.image = image
                 }
-            })
+            }
         }
     }
     

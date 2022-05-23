@@ -31,6 +31,7 @@ class SettingsView: UIView {
     func updateView() {
         usernameLabel.text = CredentialManager.sharedInstance.currentUser?.name
         phoneNumberLabel.text = CredentialManager.sharedInstance.currentUser?.phone
+        avatarImageView.sd_setImage(with: URL(string: CredentialManager.sharedInstance.currentUser?.avatarUrl ?? ""), placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     
 }

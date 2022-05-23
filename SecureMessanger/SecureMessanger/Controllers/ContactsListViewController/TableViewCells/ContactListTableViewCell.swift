@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ContactListTableViewCell: UITableViewCell {
     
@@ -28,10 +29,12 @@ class ContactListTableViewCell: UITableViewCell {
     
     func configure(with model: User) {
         usernameLabel.text = model.name
+        avatarImageView.sd_setImage(with: URL(string: model.avatarUrl), placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     
     func configure(with chatMember: ChatMember) {
         usernameLabel.text = chatMember.userName
+        avatarImageView.sd_setImage(with: URL(string: chatMember.avatarURL), placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     
 }

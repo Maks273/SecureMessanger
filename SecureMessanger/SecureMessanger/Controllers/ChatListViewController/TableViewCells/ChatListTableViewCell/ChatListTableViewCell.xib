@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -24,7 +24,8 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rKb-ey-mm5">
                                 <rect key="frame" x="22" y="14.5" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="#2F385D"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="CgG-2U-LxP"/>
                                     <constraint firstAttribute="height" constant="60" id="wAO-wf-deV"/>
@@ -73,16 +74,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIo-7I-DtF">
+                                <rect key="frame" x="22" y="14.5" width="60" height="60"/>
+                                <color key="backgroundColor" name="#2F385D"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
+                                <color key="textColor" name="#E9EFFD"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qzD-2Z-mzC" firstAttribute="leading" secondItem="rKb-ey-mm5" secondAttribute="trailing" constant="15" id="FAN-Mf-SSp"/>
                             <constraint firstItem="rKb-ey-mm5" firstAttribute="centerY" secondItem="c6K-NU-y0w" secondAttribute="centerY" id="FY4-D0-LiE"/>
+                            <constraint firstItem="RIo-7I-DtF" firstAttribute="top" secondItem="rKb-ey-mm5" secondAttribute="top" id="JNr-tD-ciQ"/>
                             <constraint firstItem="qzD-2Z-mzC" firstAttribute="top" secondItem="rKb-ey-mm5" secondAttribute="top" constant="5" id="Jae-J1-ELQ"/>
+                            <constraint firstItem="RIo-7I-DtF" firstAttribute="bottom" secondItem="rKb-ey-mm5" secondAttribute="bottom" id="KQC-I5-gOl"/>
                             <constraint firstItem="g5R-po-wHX" firstAttribute="top" secondItem="qzD-2Z-mzC" secondAttribute="bottom" constant="5" id="MzS-I8-0fN"/>
                             <constraint firstItem="Bii-e8-yLu" firstAttribute="leading" secondItem="c6K-NU-y0w" secondAttribute="leading" constant="4" id="Ssf-hq-NoP"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="g5R-po-wHX" secondAttribute="bottom" constant="17" id="eYf-xU-rFo"/>
+                            <constraint firstItem="RIo-7I-DtF" firstAttribute="trailing" secondItem="rKb-ey-mm5" secondAttribute="trailing" id="efD-Wb-Q4f"/>
                             <constraint firstAttribute="trailing" secondItem="eQs-gM-alj" secondAttribute="trailing" constant="16" id="fbx-wH-yde"/>
+                            <constraint firstItem="RIo-7I-DtF" firstAttribute="leading" secondItem="rKb-ey-mm5" secondAttribute="leading" id="h7l-qe-seV"/>
                             <constraint firstItem="eQs-gM-alj" firstAttribute="leading" secondItem="qzD-2Z-mzC" secondAttribute="trailing" constant="8" id="i8l-AJ-ltM"/>
                             <constraint firstAttribute="trailing" secondItem="g5R-po-wHX" secondAttribute="trailing" constant="16" id="iVy-Sr-jNf"/>
                             <constraint firstItem="eQs-gM-alj" firstAttribute="centerY" secondItem="qzD-2Z-mzC" secondAttribute="centerY" id="nWL-iQ-NIl"/>
@@ -105,6 +122,7 @@
             <connections>
                 <outlet property="avatarImageView" destination="rKb-ey-mm5" id="7AO-eW-ADT"/>
                 <outlet property="messageLabel" destination="g5R-po-wHX" id="vgQ-RK-Rcv"/>
+                <outlet property="shortNameLabel" destination="RIo-7I-DtF" id="Cgg-53-ooq"/>
                 <outlet property="timeLabel" destination="eQs-gM-alj" id="Rd7-c4-6dd"/>
                 <outlet property="unreadView" destination="Bii-e8-yLu" id="cf0-OP-O8d"/>
                 <outlet property="usernameLabel" destination="qzD-2Z-mzC" id="w92-w6-8Wf"/>
@@ -116,9 +134,9 @@
         <namedColor name="#2F385D">
             <color red="0.18431372549019609" green="0.2196078431372549" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="#E9EFFD">
+            <color red="0.9137254901960784" green="0.93725490196078431" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

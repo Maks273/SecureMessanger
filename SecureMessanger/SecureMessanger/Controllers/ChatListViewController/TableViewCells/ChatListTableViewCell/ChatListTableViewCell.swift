@@ -16,6 +16,7 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet private weak var usernameLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var shortNameLabel: UILabel!
     
     //MARK: - Override
 
@@ -36,5 +37,21 @@ class ChatListTableViewCell: UITableViewCell {
         usernameLabel.text = model.chat.name //: model.lastMessage?.fromUserName == nil ? model.chat.name : model.lastMessage?.fromUserName
         messageLabel.text = model.lastMessage?.message.decodeMessage()
         timeLabel.text = model.lastMessage?.timeStamp.dateStringFromTimestamp(with: .hhmm)
+        //configureShortNameLabel(model: model)
+        avatarImageView.sd_setImage(with: URL(string: model.chat.avatarURL ?? ""), placeholderImage: UIImage(systemName: "message.fill"))
+    }
+    
+    
+    private func configureShortNameLabel(model: Chat) {
+        var shortName: String = ""
+        model.chat.name.forEach { char in
+            if shortName.count < 2 {
+                shortName.append(char)
+            } else {
+                return
+            }
+        }
+        shortNameLabel.text = shortName
+        shortNameLabel.isHidden = model.chat.avatarFileId != nil
     }
 }

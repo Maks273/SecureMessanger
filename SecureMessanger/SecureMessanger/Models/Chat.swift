@@ -19,6 +19,9 @@ struct ChatEntity: Codable {
     var name: String
     let type: Int
     var avatarFileId: Int?
+    var avatarURL: String? {
+        return avatarFileId == nil ? nil : ""
+    }
 }
 
 struct LastMessage: Codable {
@@ -45,6 +48,10 @@ struct ChatMember: Codable {
     let userAvatarFileId: Int?
     var userIsContact: Bool
     let type: Int
+    
+    var avatarURL: String {
+        return ""
+    }
 }
 
 extension Chat {

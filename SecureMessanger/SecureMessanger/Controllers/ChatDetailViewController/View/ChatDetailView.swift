@@ -55,6 +55,8 @@ class ChatDetailView: UIView {
         addMembersButton.isHidden = !isGroup
         controlButtons.first?.isHidden = !isGroup
         nameTextField.isUserInteractionEnabled = isGroup
+        avatarButton.sd_setImage(with: URL(string: imageURL), for: .normal, placeholderImage: UIImage(systemName: Constants.chatPlaceholderImageName))
+        avatarButton.imageView?.contentMode = .scaleAspectFill
     }
     
     func changeSelectionStyle(index: Int) {
