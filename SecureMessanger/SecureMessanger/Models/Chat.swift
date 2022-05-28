@@ -19,9 +19,13 @@ struct ChatEntity: Codable {
     var name: String
     let type: Int
     var avatarFileId: Int?
+    let unreadCount: Int
+    let unrecievedCount: Int
+    
     var avatarURL: String? {
         return avatarFileId == nil ? nil : ""
     }
+    
 }
 
 struct LastMessage: Codable {
@@ -52,8 +56,4 @@ struct ChatMember: Codable {
     var avatarURL: String {
         return ""
     }
-}
-
-extension Chat {
-   // static let data: [Chat] = [Chat(user: User.vladimir, lastMessage: "Hey Maks. Hope you are going well. We have won the war!", isUnread: true, time: "5 mins", members: [], chat: ChatEntity(id: 1, name: "", type: 1, avatarFileId: nil))]
 }

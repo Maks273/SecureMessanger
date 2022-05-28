@@ -323,7 +323,24 @@ extension ConversationViewController: MessagesDataSource {
     }
 
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: messageList[indexPath.section].sentDate), attributes: [NSAttributedString.Key.font: UIFont(name: "Arial Hebrew Bold", size: 10)!, NSAttributedString.Key.foregroundColor: UIColor(red: 47/255, green: 56/255, blue: 93/255, alpha: 1)])
+        
+        let message = messageList[indexPath.section]
+        
+        guard isFromCurrentSender(message: message) else {
+            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont(name: "Arial Hebrew Bold", size: 10)!, NSAttributedString.Key.foregroundColor: UIColor(red: 47/255, green: 56/255, blue: 93/255, alpha: 1)])
+        }
+        
+        var text: String = ""
+        
+        if message.recieved {
+            text = "✓"
+        }
+        
+        if message.read {
+            text = "✓✓"
+        }
+        
+        return NSAttributedString(string: "\(MessageKitDateFormatter.shared.string(from: messageList[indexPath.section].sentDate)) \(text)", attributes: [NSAttributedString.Key.font: UIFont(name: "Arial Hebrew Bold", size: 10)!, NSAttributedString.Key.foregroundColor: UIColor(red: 47/255, green: 56/255, blue: 93/255, alpha: 1)])
     }
 
 }

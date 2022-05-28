@@ -55,7 +55,7 @@ class ChatDetailView: UIView {
         addMembersButton.isHidden = !isGroup
         controlButtons.first?.isHidden = !isGroup
         nameTextField.isUserInteractionEnabled = isGroup
-        avatarButton.sd_setImage(with: URL(string: imageURL), for: .normal, placeholderImage: UIImage(systemName: Constants.chatPlaceholderImageName))
+        avatarButton.sd_setImage(with: URL(string: imageURL), for: .normal, placeholderImage: isGroup ? UIImage(systemName: Constants.chatPlaceholderImageName) : UIImage(named: Constants.userPlacehoderImageName))
         avatarButton.imageView?.contentMode = .scaleAspectFill
     }
     

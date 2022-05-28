@@ -22,6 +22,8 @@ struct Message: Codable {
     let fromUserId: Int
     let fromUserPhone: String
     var fromUserIsContact: Bool
+    let read: Bool
+    let recieved: Bool
     
     let mediaType: String?
     
@@ -50,6 +52,8 @@ struct DisplayMessage: MessageType {
     var kind: MessageKind
     var user: ChatUser
     var message: String?
+    let read: Bool
+    let recieved: Bool
     
     private init(kind: MessageKind, message: Message) {
         self.kind = kind
@@ -57,6 +61,8 @@ struct DisplayMessage: MessageType {
         self.messageId = "\(message.id)"
         self.sentDate = message.timeStamp.dateFromTimestamp()
         self.message = message.message?.decodeMessage()
+        self.read = message.read
+        self.recieved = message.recieved
         switch kind {
         case .text(let string):
             self.kind = .text(self.message ?? "")

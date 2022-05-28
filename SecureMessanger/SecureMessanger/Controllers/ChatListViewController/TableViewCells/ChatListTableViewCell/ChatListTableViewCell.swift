@@ -39,6 +39,7 @@ class ChatListTableViewCell: UITableViewCell {
         timeLabel.text = model.lastMessage?.timeStamp.dateStringFromTimestamp(with: .hhmm)
         //configureShortNameLabel(model: model)
         avatarImageView.sd_setImage(with: URL(string: model.chat.avatarURL ?? ""), placeholderImage: UIImage(systemName: "message.fill"))
+        unreadView.isHidden = model.chat.unreadCount < 1
     }
     
     

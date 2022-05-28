@@ -123,7 +123,7 @@ class ConfirmPhoneNumberViewController: UIViewController {
 
         do {
             try key.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-            if FileManager.default.fileExists(atPath: filename.path){
+            if FileManager.default.fileExists(atPath: filename.path) {
                 let url = URL(fileURLWithPath: filename.path)
                 let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
                 activityViewController.completionWithItemsHandler = { (activityType, completed: Bool, returnedItems: [Any]?, error: Error?) in

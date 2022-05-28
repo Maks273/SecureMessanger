@@ -476,4 +476,54 @@ class ApiService {
             }
         }
     }
+    
+    func setReadChat(chatId: Int, completion: @escaping (_ success: Bool?, _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+
+        let dict = ["chatId": chatId]
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/chat/message/set-read"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let data = dict["data"] as? Bool {
+                    completion(data, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+    }
+    
+    func setReciveChat(chatIds: [Int], completion: @escaping (_ success: Bool?, _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+
+        let dict = ["ids": chatIds]
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/chat/message/set-recieve"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": privateHeaderAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let data = dict["data"] as? Bool {
+                    completion(data, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+    }
 }

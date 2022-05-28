@@ -59,6 +59,7 @@ class ChatListViewController: UIViewController {
                 self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
             } else {
                 self.chats = chats
+                self.setReciveStatus()
                 self.rootView?.reloadTableView()
             }
             
@@ -132,6 +133,23 @@ class ChatListViewController: UIViewController {
                 self.chats.removeAll(where: { $0.chat.id == id })
                 self.rootView?.reloadTableView()
             }
+        }
+    }
+    
+    private func setReciveStatus() {
+        let ids = self.chats.filter { $0.chat.unrecievedCount > 0 }
+        guard !ids.isEmpty else { return }
+        
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.setReciveChat(chatIds: ids.map { $0.chat.id }) { [weak self] success, error in
+            progress.hide(animated: true)
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            }
+            
         }
     }
     

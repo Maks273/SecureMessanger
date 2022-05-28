@@ -34,6 +34,7 @@ class ChatViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         fetchChat()
         fillData()
+        handleSetReadChat()
         initialHeight = view.frame.size.height
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -196,6 +197,21 @@ class ChatViewController: UIViewController {
         let vc = ChatDetailViewController()
         vc.chat = chat
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func handleSetReadChat() {
+        guard let id = chat?.chat.id, (chat?.chat.unreadCount ?? 0) >= 1 else { return }
+        
+        //let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.setReadChat(chatId: id) { [weak self] success, error in
+           // progress.hide(animated: true)
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            }
+        }
     }
 
 }

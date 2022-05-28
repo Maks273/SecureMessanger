@@ -75,4 +75,8 @@ extension String {
 
         return nil
     }
+    
+    func size(OfFont font: UIFont) -> CGSize {
+        return (self as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
+    }
 }

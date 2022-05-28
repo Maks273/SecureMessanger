@@ -87,7 +87,7 @@ class ChatDetailViewController: UIViewController {
             if let error = error {
                 self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
             } else if success == true {
-                //self.chat?.members.removeAll(where: { $0.userId == userId })
+                self.chat?.members.append(ChatMember(userId: user.id, fromUserId: CredentialManager.sharedInstance.currentUser!.id, userName: user.name ?? "", userHash: user.hash, userPhone: user.phone, userPublicKey: user.userPublicKey ?? "", userDescription: user.description, userAvatarFileId: user.avatartFileId, userIsContact: user.isContact, type: 2))
                 self.rootView?.tableView.reloadData()
             }
         }
