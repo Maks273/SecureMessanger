@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD
+import Swime
 
 class ProfileSettingsViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class ProfileSettingsViewController: UIViewController {
             rootView?.setBioTextViewHeight(height)
         }
     }
+    private var selectedImage: UIImage?
+    private var selectedImageURL: URL?
     
     //MARK: - Life cycles
 
@@ -46,6 +49,11 @@ class ProfileSettingsViewController: UIViewController {
             guard let self = self else { return }
             self.updateUser()
         }
+        
+        rootView?.avatarAction = { [weak self] in
+            guard let self = self else { return }
+            self.showPickMedia()
+        }
     }
     
     private func updateUser() {
@@ -59,8 +67,17 @@ class ProfileSettingsViewController: UIViewController {
             return
         }
 
+        handleUpdateUser(model: UpdateUserRequest(name: username, description: bio, avatarFileId: CredentialManager.sharedInstance.currentUser?.avatarFileId))
+        
+        
+        if selectedImage != UIImage(named: Constants.userPlacehoderImageName) {
+            uploadPicture()
+        }
+    }
+    
+    private func handleUpdateUser(model: UpdateUserRequest) {
         let progress = MBProgressHUD.showAdded(to: view, animated: true)
-        ApiService.shared.updateUser(UpdateUserRequest(name: username, description: bio)) { [weak self] user, error in
+        ApiService.shared.updateUser(model) { [weak self] user, error in
             progress.hide(animated: true)
             guard let self = self else { return }
 
@@ -82,8 +99,40 @@ class ProfileSettingsViewController: UIViewController {
         rootView?.setName(user?.name)
         rootView?.setupPhoneNumber(user?.phone)
         rootView?.setBioInfo(user?.description)
-        rootView?.setUserImage(user?.avatarUrl)
+        
+        if let selectedImage = selectedImage {
+            rootView?.avatarImageView.image = selectedImage
+        } else {
+            rootView?.setUserImage(user?.avatarUrl)
+        }
     }
+    
+    private func showPickMedia() {
+        showPickMediaBootomSheet(libraryAction: {
+            self.showLibrary(delegate: self)
+        }, cameraAction: {
+            self.showLibrary(sourceType: .camera, delegate: self)
+        }, documentsAction: nil)
+    }
+    
+    private func uploadPicture() {
+        guard let selectedImage = selectedImage, let data = selectedImage.pngData(), let mimeType = Swime.mimeType(data: data) else { return }
+        
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.uploadPublicMedia(model: UploadFileRequest(mime: mimeType.mime, name: UUID().uuidString, base64: data.base64EncodedString())) { [weak self] fileId, error in
+            progress.hide(animated: true)
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else if let fileId = fileId {
+                CredentialManager.sharedInstance.currentUser?.avatarFileId = fileId
+                self.handleUpdateUser(model: UpdateUserRequest(avatarFileId: fileId))
+            }
+        }
+    }
+    
 }
 
 //MARK: - RootViewGettable
@@ -118,5 +167,16 @@ extension ProfileSettingsViewController: UITextViewDelegate {
             textView.text = "Bio"
             textView.textColor = .lightGray
         }
+    }
+}
+
+extension ProfileSettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                selectedImage = image
+                selectedImageURL = info[.imageURL] as? URL
+                rootView?.avatarImageView.image = image
+                dismiss(animated: true)
+            }
     }
 }

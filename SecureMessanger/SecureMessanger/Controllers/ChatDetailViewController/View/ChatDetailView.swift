@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ChatDetailView: UIView {
     
@@ -17,11 +18,15 @@ class ChatDetailView: UIView {
     @IBOutlet private weak var phoneNumberHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var addMemberHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var addMembersButton: UIButton!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     var addMemberAction: (() -> Void)?
+    var avatarAction: (() -> Void)?
     var controlAction: ((_ index: Int) -> Void)?
     let contactCellID = "ContactListTableViewCell"
     var currentControlIndex: Int = 0
+    
+    private var isGroup: Bool = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +52,14 @@ class ChatDetailView: UIView {
         addMemberAction?()
     }
     
+    @IBAction func avatarButtonPressed(_ sender: Any) {
+        if isGroup {
+            avatarAction?()
+        }
+    }
+    
     func configure(chatName: String, imageURL: String, phoneNumber: String?, isGroup: Bool) {
+        self.isGroup = isGroup
         nameTextField.text = chatName
         phoneTextField.text = phoneNumber
         phoneNumberHeightConstraint.constant = isGroup ? 0 : 40
@@ -55,8 +67,8 @@ class ChatDetailView: UIView {
         addMembersButton.isHidden = !isGroup
         controlButtons.first?.isHidden = !isGroup
         nameTextField.isUserInteractionEnabled = isGroup
-        avatarButton.sd_setImage(with: URL(string: imageURL), for: .normal, placeholderImage: isGroup ? UIImage(systemName: Constants.chatPlaceholderImageName) : UIImage(named: Constants.userPlacehoderImageName))
-        avatarButton.imageView?.contentMode = .scaleAspectFill
+        avatarImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        avatarImageView.sd_setImage(with:  URL(string: imageURL), placeholderImage: isGroup ? UIImage(systemName: Constants.chatPlaceholderImageName) : UIImage(named: Constants.userPlacehoderImageName))
     }
     
     func changeSelectionStyle(index: Int) {

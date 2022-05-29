@@ -42,6 +42,16 @@
                             <color key="textColor" name="#2F385D"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3L9-fw-NQ0">
+                            <rect key="frame" x="362" y="10" width="40" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="#2F385D"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzU-hB-FD8">
                             <rect key="frame" x="362" y="10" width="40" height="40"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,7 +59,7 @@
                                 <constraint firstAttribute="height" constant="40" id="bif-fj-P9T"/>
                                 <constraint firstAttribute="width" constant="40" id="lWB-mB-AuW"/>
                             </constraints>
-                            <color key="tintColor" name="#2F385D"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -71,16 +81,20 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="XBR-I3-P9T" firstAttribute="centerY" secondItem="Bsf-av-z8P" secondAttribute="centerY" id="4H6-nx-bNe"/>
+                        <constraint firstItem="3L9-fw-NQ0" firstAttribute="top" secondItem="PzU-hB-FD8" secondAttribute="top" id="ILO-Qv-QKl"/>
                         <constraint firstItem="PzU-hB-FD8" firstAttribute="leading" secondItem="XBR-I3-P9T" secondAttribute="trailing" constant="2" id="KCM-kX-P1Z"/>
                         <constraint firstItem="XBR-I3-P9T" firstAttribute="leading" secondItem="kdg-Jr-ocX" secondAttribute="trailing" constant="2" id="KpQ-nj-Wl2"/>
                         <constraint firstItem="kdg-Jr-ocX" firstAttribute="centerY" secondItem="Bsf-av-z8P" secondAttribute="centerY" id="L24-90-5Af"/>
                         <constraint firstItem="PzU-hB-FD8" firstAttribute="centerY" secondItem="Bsf-av-z8P" secondAttribute="centerY" id="PLa-Zt-BYb"/>
+                        <constraint firstItem="3L9-fw-NQ0" firstAttribute="bottom" secondItem="PzU-hB-FD8" secondAttribute="bottom" id="SSr-wH-954"/>
                         <constraint firstAttribute="bottom" secondItem="k0D-Ge-BbX" secondAttribute="bottom" id="W0y-zX-uk6"/>
                         <constraint firstItem="k0D-Ge-BbX" firstAttribute="leading" secondItem="Bsf-av-z8P" secondAttribute="leading" id="XVI-bw-TXa"/>
                         <constraint firstItem="kdg-Jr-ocX" firstAttribute="leading" secondItem="Bsf-av-z8P" secondAttribute="leading" constant="12" id="Y8u-Ck-SWi"/>
+                        <constraint firstItem="3L9-fw-NQ0" firstAttribute="trailing" secondItem="PzU-hB-FD8" secondAttribute="trailing" id="c1W-LG-ttq"/>
                         <constraint firstAttribute="trailing" secondItem="PzU-hB-FD8" secondAttribute="trailing" constant="12" id="hyl-fC-Swm"/>
                         <constraint firstAttribute="height" constant="60" id="jAd-s5-t2Q"/>
                         <constraint firstAttribute="trailing" secondItem="k0D-Ge-BbX" secondAttribute="trailing" id="nT5-QM-pVG"/>
+                        <constraint firstItem="3L9-fw-NQ0" firstAttribute="leading" secondItem="PzU-hB-FD8" secondAttribute="leading" id="plB-AO-xal"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5me-2h-DMY">
@@ -173,6 +187,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bsf-av-z8P" secondAttribute="trailing" id="reu-Xe-pOQ"/>
             </constraints>
             <connections>
+                <outlet property="avatarImageView" destination="3L9-fw-NQ0" id="t3v-6K-6CM"/>
                 <outlet property="chatAvatarButton" destination="PzU-hB-FD8" id="2Wx-Lr-PG5"/>
                 <outlet property="chatContainerView" destination="0UY-QH-0sB" id="to0-4T-pXF"/>
                 <outlet property="chatNameLabel" destination="XBR-I3-P9T" id="BXj-A5-sNI"/>
@@ -183,9 +198,9 @@
         </view>
     </objects>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="paperplane.circle" catalog="system" width="128" height="121"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="chevron.left" catalog="system" width="32" height="32"/>
+        <image name="paperplane.circle" catalog="system" width="32" height="32"/>
+        <image name="plus" catalog="system" width="32" height="32"/>
         <namedColor name="#2F385D">
             <color red="0.18431372549019609" green="0.2196078431372549" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

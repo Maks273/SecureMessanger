@@ -22,8 +22,11 @@ struct ChatEntity: Codable {
     let unreadCount: Int
     let unrecievedCount: Int
     
-    var avatarURL: String? {
-        return avatarFileId == nil ? nil : ""
+    var avatarURL: String {
+        get {
+            guard let fileId = avatarFileId else { return "" }
+            return ApiService.shared.getDownloadFile(fileId: fileId)
+        }
     }
     
 }
@@ -54,6 +57,9 @@ struct ChatMember: Codable {
     let type: Int
     
     var avatarURL: String {
-        return ""
+        get {
+            guard let fileId = userAvatarFileId else { return "" }
+            return ApiService.shared.getDownloadFile(fileId: fileId)
+        }
     }
 }

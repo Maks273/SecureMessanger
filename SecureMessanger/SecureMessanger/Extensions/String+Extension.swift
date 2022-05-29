@@ -8,6 +8,7 @@
 import UIKit
 import CryptoSwift
 import SwiftyRSA
+import MobileCoreServices
 
 extension String {
     func sha256String() -> String? {
@@ -78,5 +79,12 @@ extension String {
     
     func size(OfFont font: UIFont) -> CGSize {
         return (self as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
+    }
+    
+    func isVideoMime() -> Bool {
+        guard  let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, self as CFString, nil)?.takeRetainedValue() else {
+            return false
+        }
+        return UTTypeConformsTo(uti, kUTTypeMovie)
     }
 }

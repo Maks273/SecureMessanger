@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileSettingsView: UIView {
     
@@ -16,10 +17,12 @@ class ProfileSettingsView: UIView {
     @IBOutlet private weak var bioTextViewHeight: NSLayoutConstraint!
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var avatarButton: UIButton!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     //MARK: - Variables
     
     var saveAction: (() -> ())?
+    var avatarAction: (() -> ())?
     
     //MARK: - Override
 
@@ -32,6 +35,10 @@ class ProfileSettingsView: UIView {
     
     @IBAction private func saveButtonPressed(_ sender: Any) {
         saveAction?()
+    }
+    
+    @IBAction private func avatarButtonPressed(_ sender: Any) {
+        avatarAction?()
     }
     
     //MARK: - Helper
@@ -53,11 +60,12 @@ class ProfileSettingsView: UIView {
     }
     
     func setUserImage(_ imageURL: String?) {
-        avatarButton.sd_setImage(with: URL(string: imageURL ?? ""), for: .normal, placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
+        avatarImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        avatarImageView.sd_setImage(with: URL(string: imageURL ?? ""), placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     
     func getUserImage() -> UIImage? {
-        return avatarButton.imageView?.image
+        return avatarImageView.image
     }
     
     func getUserName() -> String? {

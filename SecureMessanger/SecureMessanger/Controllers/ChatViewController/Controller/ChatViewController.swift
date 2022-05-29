@@ -9,6 +9,7 @@ import UIKit
 import MBProgressHUD
 import CryptoSwift
 import SwiftyRSA
+import Swime
 
 class ChatViewController: UIViewController {
     
@@ -56,7 +57,11 @@ class ChatViewController: UIViewController {
         }
         
         rootView?.sendAction = { [weak self] message in
-            self?.sendMessage(text: message)
+            self?.sendMessage(text: message, fileId: nil)
+        }
+        
+        rootView?.attachMediaAction = { [weak self] in
+            self?.showPickMedia()
         }
         
     }
@@ -121,11 +126,11 @@ class ChatViewController: UIViewController {
         
     }
     
-    private func sendMessage(text: String?) {
+    private func sendMessage(text: String?, fileId: Int?) {
         guard let text = text, !text.isEmpty, let chatID = chat?.chat.id, var members = chat?.members else { return }
 
         
-        let messageEntity = CreateMessageEntity(chatId: chatID, fileId: nil)
+        let messageEntity = CreateMessageEntity(chatId: chatID, fileId: fileId)
         var bodies: [CreateMessageBody] = []
         
         let randomString = String.randomAlphaNumericString(length: 8)
@@ -213,6 +218,30 @@ class ChatViewController: UIViewController {
             }
         }
     }
+    
+    private func showPickMedia() {
+        showPickMediaBootomSheet(libraryAction: {
+            self.showLibrary(delegate: self)
+        }, cameraAction: {
+            self.showLibrary(sourceType: .camera, delegate: self)
+        }, documentsAction: nil)
+    }
+    
+    private func uploadMedia(model: UploadFileRequest) {
+        
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.uploadPublicMedia(model: model) { [weak self] fileId, error in
+            progress.hide(animated: true)
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else if let fileId = fileId {
+                self.sendMessage(text: " ", fileId: fileId)
+            }
+        }
+    }
 
 }
 
@@ -233,3 +262,28 @@ extension ChatViewController: UITextViewDelegate {
         }
     }
 }
+
+extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var data: Data?
+    
+        let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL
+        
+        if let videoURL = videoURL {
+            data = try? Data(contentsOf: videoURL)
+        }
+                
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let imageJPEGData = image.jpegData(compressionQuality: 0.7) {
+            data = imageJPEGData
+        }
+        dismiss(animated: true) { [weak self] in
+           
+            guard let data = data, let mimeType = Swime.mimeType(data: data) else {
+                return
+            }
+
+            self?.uploadMedia(model: UploadFileRequest(mime: mimeType.mime, name: UUID().uuidString, base64: data.base64EncodedString()))
+        }
+    }
+}
+

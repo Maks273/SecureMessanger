@@ -26,20 +26,31 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s32-aE-xtD">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aV-gg-luJ">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l8O-xf-XRi">
+                                    <rect key="frame" x="132" y="40" width="150" height="150"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="75"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aV-gg-luJ">
                                     <rect key="frame" x="132" y="40" width="150" height="150"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="CzE-U6-9KV"/>
                                         <constraint firstAttribute="height" constant="150" id="v4P-eo-Mby"/>
                                     </constraints>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="75"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="avatarButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="ebH-ed-SD0"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your username and add an optional profile photo" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZK-x3-tSL">
                                     <rect key="frame" x="25" y="275" width="364" height="15"/>
@@ -131,7 +142,9 @@
                                 <constraint firstItem="mZK-x3-tSL" firstAttribute="leading" secondItem="s32-aE-xtD" secondAttribute="leading" constant="25" id="JYe-N3-yE8"/>
                                 <constraint firstItem="JMx-Fo-LRZ" firstAttribute="leading" secondItem="33r-Qv-gM6" secondAttribute="leading" constant="9" id="Jtp-Go-QhD"/>
                                 <constraint firstAttribute="trailing" secondItem="N3V-7j-Wyi" secondAttribute="trailing" constant="16" id="N5N-JY-xhm"/>
+                                <constraint firstItem="l8O-xf-XRi" firstAttribute="leading" secondItem="4aV-gg-luJ" secondAttribute="leading" id="PeE-G0-l3H"/>
                                 <constraint firstItem="mZK-x3-tSL" firstAttribute="top" secondItem="ZBJ-ME-Pgw" secondAttribute="bottom" constant="10" id="Scn-3c-ZQI"/>
+                                <constraint firstItem="l8O-xf-XRi" firstAttribute="trailing" secondItem="4aV-gg-luJ" secondAttribute="trailing" id="Udk-dy-l8F"/>
                                 <constraint firstAttribute="trailing" secondItem="ypH-EL-bt4" secondAttribute="trailing" constant="16" id="XQs-6R-8ft"/>
                                 <constraint firstItem="aA7-at-t3a" firstAttribute="top" secondItem="33r-Qv-gM6" secondAttribute="bottom" constant="35" id="a9M-qo-mP5"/>
                                 <constraint firstItem="N3V-7j-Wyi" firstAttribute="leading" secondItem="s32-aE-xtD" secondAttribute="leading" constant="16" id="fzZ-AJ-yCi"/>
@@ -140,8 +153,10 @@
                                 <constraint firstAttribute="trailing" secondItem="mZK-x3-tSL" secondAttribute="trailing" constant="25" id="msM-6p-QOl"/>
                                 <constraint firstItem="ypH-EL-bt4" firstAttribute="top" secondItem="N3V-7j-Wyi" secondAttribute="bottom" constant="10" id="ohg-TR-JaM"/>
                                 <constraint firstItem="aA7-at-t3a" firstAttribute="leading" secondItem="s32-aE-xtD" secondAttribute="leading" constant="16" id="qBa-Ja-cQr"/>
+                                <constraint firstItem="l8O-xf-XRi" firstAttribute="top" secondItem="4aV-gg-luJ" secondAttribute="top" id="qGy-cE-3pf"/>
                                 <constraint firstItem="33r-Qv-gM6" firstAttribute="leading" secondItem="s32-aE-xtD" secondAttribute="leading" constant="16" id="sKj-0g-SQx"/>
                                 <constraint firstAttribute="trailing" secondItem="aA7-at-t3a" secondAttribute="trailing" constant="16" id="uZY-mA-t98"/>
+                                <constraint firstItem="l8O-xf-XRi" firstAttribute="bottom" secondItem="4aV-gg-luJ" secondAttribute="bottom" id="wo0-bf-f6g"/>
                                 <constraint firstAttribute="trailing" secondItem="ZBJ-ME-Pgw" secondAttribute="trailing" constant="16" id="x95-qZ-78R"/>
                                 <constraint firstAttribute="trailing" secondItem="33r-Qv-gM6" secondAttribute="trailing" constant="16" id="xLp-B3-kJi"/>
                             </constraints>
@@ -170,6 +185,7 @@
             </constraints>
             <connections>
                 <outlet property="avatarButton" destination="4aV-gg-luJ" id="kDr-kJ-IG5"/>
+                <outlet property="avatarImageView" destination="l8O-xf-XRi" id="bSy-9N-70w"/>
                 <outlet property="bioTextView" destination="N3V-7j-Wyi" id="SsS-ro-ovF"/>
                 <outlet property="bioTextViewHeight" destination="1LJ-7G-wss" id="hCA-Sg-ZdQ"/>
                 <outlet property="phoneNumberTextField" destination="33r-Qv-gM6" id="7dE-Oh-fTU"/>

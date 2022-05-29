@@ -10,4 +10,5 @@ import Foundation
 struct UpdateUserRequest: Codable {
     var name: String?
     var description: String?
+    var avatarFileId: Int?
 }

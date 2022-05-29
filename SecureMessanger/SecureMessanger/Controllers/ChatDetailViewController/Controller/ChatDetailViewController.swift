@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD
+import Swime
 
 class ChatDetailViewController: UIViewController {
     
@@ -38,7 +39,7 @@ class ChatDetailViewController: UIViewController {
     private func configureView() {
         guard let chat = chat?.chat else { return }
         let user = self.chat?.members.first(where: { $0.userId != CredentialManager.sharedInstance.currentUser?.id })
-        rootView?.configure(chatName: chat.name, imageURL: "", phoneNumber: chat.type == 1 ? user?.userPhone : nil, isGroup: chat.type == 2)
+        rootView?.configure(chatName: chat.name, imageURL: chat.avatarURL, phoneNumber: chat.type == 1 ? user?.userPhone : nil, isGroup: chat.type == 2)
         currentControlIndex = chat.type == 1 ? 1 : 0
         rootView?.addMemberAction = { [weak self] in
             self?.showFindMemberVC()
@@ -47,6 +48,18 @@ class ChatDetailViewController: UIViewController {
         rootView?.controlAction = { [weak self] index in
             self?.currentControlIndex = index
         }
+        
+        rootView?.avatarAction = { [weak self] in
+            self?.showPickMedia()
+        }
+    }
+    
+    private func showPickMedia() {
+        showPickMediaBootomSheet(libraryAction: {
+            self.showLibrary(delegate: self)
+        }, cameraAction: {
+            self.showLibrary(sourceType: .camera, delegate: self)
+        }, documentsAction: nil)
     }
     
     private func showFindMemberVC() {
@@ -87,7 +100,7 @@ class ChatDetailViewController: UIViewController {
             if let error = error {
                 self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
             } else if success == true {
-                self.chat?.members.append(ChatMember(userId: user.id, fromUserId: CredentialManager.sharedInstance.currentUser!.id, userName: user.name ?? "", userHash: user.hash, userPhone: user.phone, userPublicKey: user.userPublicKey ?? "", userDescription: user.description, userAvatarFileId: user.avatartFileId, userIsContact: user.isContact, type: 2))
+                self.chat?.members.append(ChatMember(userId: user.id, fromUserId: CredentialManager.sharedInstance.currentUser!.id, userName: user.name ?? "", userHash: user.hash, userPhone: user.phone, userPublicKey: user.userPublicKey ?? "", userDescription: user.description, userAvatarFileId: user.avatarFileId, userIsContact: user.isContact, type: 2))
                 self.rootView?.tableView.reloadData()
             }
         }
@@ -122,6 +135,21 @@ class ChatDetailViewController: UIViewController {
         
     }
     
+    private func uploadPicture(selectedImage: UIImage) {
+        guard let data = selectedImage.pngData(), let mimeType = Swime.mimeType(data: data) else { return }
+        let progress = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        ApiService.shared.uploadPublicMedia(model: UploadFileRequest(mime: mimeType.mime, name: UUID().uuidString, base64: data.base64EncodedString())) { [weak self] fileId, error in
+            progress.hide(animated: true)
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription, okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+            } else if let fileId = fileId {
+                self.updateChatInfo(chatName: nil, avatarId: fileId)
+            }
+        }
+    }
 
 }
 
@@ -135,7 +163,7 @@ extension ChatDetailViewController: UITableViewDelegate {
         
         if currentControlIndex == 0 {
             guard let member = chat?.members[indexPath.row] else { return }
-            showUserProfileVC(User(name: member.userName, phone: member.userPhone, id: member.userId, userPublicKey: member.userPublicKey, avatartFileId: member.userAvatarFileId, hash: "", description: member.userDescription ?? "", isContact: member.userIsContact), at: indexPath)
+            showUserProfileVC(User(name: member.userName, phone: member.userPhone, id: member.userId, userPublicKey: member.userPublicKey, avatarFileId: member.userAvatarFileId, hash: "", description: member.userDescription ?? "", isContact: member.userIsContact), at: indexPath)
         }
     }
     
@@ -179,5 +207,15 @@ extension ChatDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         updateChatInfo(chatName: textField.text, avatarId: nil)
         return true
+    }
+}
+
+extension ChatDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                uploadPicture(selectedImage: image)
+                rootView?.avatarImageView.image = image
+                dismiss(animated: true)
+            }
     }
 }

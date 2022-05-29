@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ChatView: UIView {
     
@@ -14,7 +15,9 @@ class ChatView: UIView {
     @IBOutlet weak var chatContainerView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var inputContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var avatarImageView: UIImageView!
     
+    var attachMediaAction: (() -> Void)?
     var backAction: (() -> Void)?
     var avatarAction: (() -> Void)?
     var sendAction: ((_ text: String?) -> Void)?
@@ -37,13 +40,14 @@ class ChatView: UIView {
     }
     
     @IBAction func attachButtonPressed(_ sender: Any) {
-    
+        attachMediaAction?()
     }
     
     
     func configureView(with chat: Chat) {
         chatNameLabel.text = chat.chat.name
-        chatAvatarButton.sd_setImage(with: URL(string: chat.chat.avatarURL ?? ""), for: .normal, placeholderImage: UIImage(systemName: Constants.chatPlaceholderImageName))
+        avatarImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        avatarImageView.sd_setImage(with: URL(string: chat.chat.avatarURL), placeholderImage: UIImage(systemName: Constants.chatPlaceholderImageName))
     }
     
     func setInputContainerHeight(_ height: CGFloat) {

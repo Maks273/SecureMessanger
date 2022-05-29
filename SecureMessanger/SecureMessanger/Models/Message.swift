@@ -28,7 +28,8 @@ struct Message: Codable {
     let mediaType: String?
     
     var fileURL: URL? {
-        return URL(string: "")
+        guard let fileId = fileId else { return nil }
+        return URL(string: ApiService.shared.getDownloadFile(fileId: fileId))
     }
 }
 
@@ -57,7 +58,7 @@ struct DisplayMessage: MessageType {
     
     private init(kind: MessageKind, message: Message) {
         self.kind = kind
-        self.user = ChatUser(from: User(name: message.fromUserName, phone: message.fromUserPhone, id: message.fromUserId, userPublicKey: nil, avatartFileId: message.fromUserAvatarFileId, hash: "", description: "", isContact: message.fromUserIsContact))
+        self.user = ChatUser(from: User(name: message.fromUserName, phone: message.fromUserPhone, id: message.fromUserId, userPublicKey: nil, avatarFileId: message.fromUserAvatarFileId, hash: "", description: "", isContact: message.fromUserIsContact))
         self.messageId = "\(message.id)"
         self.sentDate = message.timeStamp.dateFromTimestamp()
         self.message = message.message?.decodeMessage()
@@ -81,13 +82,14 @@ struct DisplayMessage: MessageType {
     init(url: URL, message: Message) {
         let mediaItem = ImageMediaItem(imageURL: url, thubmURL: URL(string: ""))
         var kind = MessageKind.photo(mediaItem)
-        if message.mediaType?.lowercased() == "video" {
+        
+        if message.mediaType?.isVideoMime() == true {
             kind = MessageKind.video(mediaItem)
         } else if message.mediaType?.lowercased() == "document" {
             kind = MessageKind.custom(mediaItem.url)
         }
         self.init(kind: kind, message: message)
-        self.user = ChatUser(from: User(name: message.fromUserName, phone: message.fromUserPhone, id: message.fromUserId, userPublicKey: nil, avatartFileId: message.fromUserAvatarFileId, hash: "", description: "", isContact: message.fromUserIsContact))
+        self.user = ChatUser(from: User(name: message.fromUserName, phone: message.fromUserPhone, id: message.fromUserId, userPublicKey: nil, avatarFileId: message.fromUserAvatarFileId, hash: "", description: "", isContact: message.fromUserIsContact))
         self.messageId = "\(message.id)"
         self.sentDate = message.timeStamp.dateFromTimestamp()
         self.message = message.message?.decodeMessage()

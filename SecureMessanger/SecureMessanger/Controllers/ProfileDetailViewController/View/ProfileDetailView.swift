@@ -16,6 +16,7 @@ class ProfileDetailView: UIView {
     @IBOutlet private weak var connectButton: UIButton!
     @IBOutlet private weak var messageButton: UIButton!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var avatarImageView: UIImageView!
     
     var messageAction: (() -> Void)?
     var connectAction: (() -> Void)?
@@ -39,7 +40,8 @@ class ProfileDetailView: UIView {
         descriptionLabel.text = model.description
         connectButton.isHidden = model.id == CredentialManager.sharedInstance.currentUser?.id
         messageButton.isHidden = model.id == CredentialManager.sharedInstance.currentUser?.id
-        avatarButton.sd_setImage(with: URL(string: model.avatarUrl), for: .normal, placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
+        avatarImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        avatarImageView.sd_setImage(with: URL(string: model.avatarUrl), placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     
     func setConnectButtonTitle(_ title: String) {

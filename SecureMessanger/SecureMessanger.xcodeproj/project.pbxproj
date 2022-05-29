@@ -11,6 +11,10 @@
 		2D18939528393805006A2D64 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18939328393805006A2D64 /* ProfileDetailViewController.swift */; };
 		2D18939628393805006A2D64 /* ProfileDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D18939428393805006A2D64 /* ProfileDetailViewController.xib */; };
 		2D18939928393817006A2D64 /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18939828393817006A2D64 /* ProfileDetailView.swift */; };
+		2D237FBE28440B35001C35BB /* Swime in Frameworks */ = {isa = PBXBuildFile; productRef = 2D237FBD28440B35001C35BB /* Swime */; };
+		2D237FC3284418AE001C35BB /* ZoomImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D237FC2284418AE001C35BB /* ZoomImageViewController.xib */; };
+		2D237FC5284418D9001C35BB /* ZoomImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D237FC4284418D9001C35BB /* ZoomImageViewController.swift */; };
+		2D237FC728441B09001C35BB /* AVAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D237FC628441B09001C35BB /* AVAsset+Extension.swift */; };
 		2D267124283AAADA002F726E /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D267122283AAADA002F726E /* ChatDetailViewController.swift */; };
 		2D267125283AAADA002F726E /* ChatDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D267123283AAADA002F726E /* ChatDetailViewController.xib */; };
 		2D267128283AAAEA002F726E /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D267127283AAAEA002F726E /* ChatDetailView.swift */; };
@@ -74,6 +78,8 @@
 		2DC3B7D427E778BE00B5DC24 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7D227E778BE00B5DC24 /* ChatListTableViewCell.swift */; };
 		2DC3B7D527E778BE00B5DC24 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC3B7D327E778BE00B5DC24 /* ChatListTableViewCell.xib */; };
 		2DC3B7D727E778F200B5DC24 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3B7D627E778F200B5DC24 /* Chat.swift */; };
+		2DD2371D2842417A008342A3 /* UploadFileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2371C2842417A008342A3 /* UploadFileRequest.swift */; };
+		2DD2371F284241B3008342A3 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2371E284241B3008342A3 /* URL+Extension.swift */; };
 		2DE229392827EF7C00C7776A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE229382827EF7C00C7776A /* ApiService.swift */; };
 		2DE2293C2827EFF800C7776A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE2293B2827EFF800C7776A /* User.swift */; };
 		609707F2E176BA6E81DA281B /* Pods_SecureMessanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */; };
@@ -84,6 +90,9 @@
 		2D18939328393805006A2D64 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		2D18939428393805006A2D64 /* ProfileDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileDetailViewController.xib; sourceTree = "<group>"; };
 		2D18939828393817006A2D64 /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
+		2D237FC2284418AE001C35BB /* ZoomImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZoomImageViewController.xib; sourceTree = "<group>"; };
+		2D237FC4284418D9001C35BB /* ZoomImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImageViewController.swift; sourceTree = "<group>"; };
+		2D237FC628441B09001C35BB /* AVAsset+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+Extension.swift"; sourceTree = "<group>"; };
 		2D267122283AAADA002F726E /* ChatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
 		2D267123283AAADA002F726E /* ChatDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatDetailViewController.xib; sourceTree = "<group>"; };
 		2D267127283AAAEA002F726E /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
@@ -148,6 +157,8 @@
 		2DC3B7D227E778BE00B5DC24 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		2DC3B7D327E778BE00B5DC24 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
 		2DC3B7D627E778F200B5DC24 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		2DD2371C2842417A008342A3 /* UploadFileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileRequest.swift; sourceTree = "<group>"; };
+		2DD2371E284241B3008342A3 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		2DE229382827EF7C00C7776A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		2DE2293B2827EFF800C7776A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		51A76C56C6007A512E694044 /* Pods_SecureMessanger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecureMessanger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D237FBE28440B35001C35BB /* Swime in Frameworks */,
 				609707F2E176BA6E81DA281B /* Pods_SecureMessanger.framework in Frameworks */,
 				2D47E20B282EBA5100AE258E /* CryptoSwift in Frameworks */,
 			);
@@ -192,6 +204,15 @@
 				2D18939828393817006A2D64 /* ProfileDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2D237FC1284418A5001C35BB /* ZoomImageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D237FC2284418AE001C35BB /* ZoomImageViewController.xib */,
+				2D237FC4284418D9001C35BB /* ZoomImageViewController.swift */,
+			);
+			path = ZoomImageViewController;
 			sourceTree = "<group>";
 		};
 		2D267120283AAAC3002F726E /* ChatDetailViewController */ = {
@@ -282,6 +303,7 @@
 				2D5F16C527E4D9D40089E504 /* LoginViewController */,
 				2D5F16B427E4CFBA0089E504 /* WelcomeViewController */,
 				2D72CF8627E78548002D2924 /* MainTabBarViewController.swift */,
+				2D237FC1284418A5001C35BB /* ZoomImageViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +319,7 @@
 				2D6245172837EEF50094DD04 /* CreateMessageRequest.swift */,
 				2D18938F2839082C006A2D64 /* Message.swift */,
 				2D267133283C1AF8002F726E /* Constants.swift */,
+				2DD2371C2842417A008342A3 /* UploadFileRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +332,8 @@
 				2DC3B7C527E76F6B00B5DC24 /* UITextView+Extension.swift */,
 				2D47E202282EB6C000AE258E /* String+Extension.swift */,
 				2D6244FA283688520094DD04 /* Date+Extension.swift */,
+				2DD2371E284241B3008342A3 /* URL+Extension.swift */,
+				2D237FC628441B09001C35BB /* AVAsset+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -675,6 +700,7 @@
 			name = SecureMessanger;
 			packageProductDependencies = (
 				2D47E20A282EBA5100AE258E /* CryptoSwift */,
+				2D237FBD28440B35001C35BB /* Swime */,
 			);
 			productName = SecureMessanger;
 			productReference = 2D5F169927E4CD390089E504 /* SecureMessanger.app */;
@@ -707,6 +733,7 @@
 			packageReferences = (
 				2D47E204282EB9CD00AE258E /* XCRemoteSwiftPackageReference "swift-crypto" */,
 				2D47E209282EBA5100AE258E /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				2D237FBC28440B35001C35BB /* XCRemoteSwiftPackageReference "Swime" */,
 			);
 			productRefGroup = 2D5F169A27E4CD390089E504 /* Products */;
 			projectDirPath = "";
@@ -732,6 +759,7 @@
 				2D62450B2836A69A0094DD04 /* FindMemberViewController.xib in Resources */,
 				2D5F16A927E4CD3B0089E504 /* LaunchScreen.storyboard in Resources */,
 				2D5F16D627E4EA550089E504 /* ConfirmPhoneNumberViewController.xib in Resources */,
+				2D237FC3284418AE001C35BB /* ZoomImageViewController.xib in Resources */,
 				2DC3B7CD27E7764600B5DC24 /* ChatListViewController.xib in Resources */,
 				2DC3B7C427E734B000B5DC24 /* ProfileSettingsViewController.xib in Resources */,
 				2D5F16A627E4CD3B0089E504 /* Assets.xcassets in Resources */,
@@ -810,9 +838,11 @@
 				2D6245162837A5620094DD04 /* ConversationViewController.swift in Sources */,
 				2D5F169F27E4CD390089E504 /* SceneDelegate.swift in Sources */,
 				2D6245112836A8B90094DD04 /* MemberTableViewCell.swift in Sources */,
+				2D237FC728441B09001C35BB /* AVAsset+Extension.swift in Sources */,
 				2D1893902839082C006A2D64 /* Message.swift in Sources */,
 				2D5F16C827E4D9E20089E504 /* LoginViewController.swift in Sources */,
 				2D62450428368E520094DD04 /* CreateChatView.swift in Sources */,
+				2DD2371F284241B3008342A3 /* URL+Extension.swift in Sources */,
 				2DC3B7C627E76F6B00B5DC24 /* UITextView+Extension.swift in Sources */,
 				2D6244F7283563150094DD04 /* DictionaryDecoder.swift in Sources */,
 				2D6244F928356C870094DD04 /* UpdateUserRequest.swift in Sources */,
@@ -828,6 +858,7 @@
 				2D62450D2836A6A80094DD04 /* FindMemberView.swift in Sources */,
 				2D5F16C427E4D9720089E504 /* NavigationService.swift in Sources */,
 				2D5F16D827E4EA630089E504 /* ConfirmPhoneNumberView.swift in Sources */,
+				2D237FC5284418D9001C35BB /* ZoomImageViewController.swift in Sources */,
 				2D6244FB283688520094DD04 /* Date+Extension.swift in Sources */,
 				2D72CF9027E78987002D2924 /* ContactsListView.swift in Sources */,
 				2DC3B7D427E778BE00B5DC24 /* ChatListTableViewCell.swift in Sources */,
@@ -840,6 +871,7 @@
 				2DE229392827EF7C00C7776A /* ApiService.swift in Sources */,
 				2D6245182837EEF50094DD04 /* CreateMessageRequest.swift in Sources */,
 				2D267128283AAAEA002F726E /* ChatDetailView.swift in Sources */,
+				2DD2371D2842417A008342A3 /* UploadFileRequest.swift in Sources */,
 				2D6245142836B3FE0094DD04 /* CreateChatRequest.swift in Sources */,
 				2D72CF9B27E798F2002D2924 /* SettingsViewController.swift in Sources */,
 			);
@@ -1065,6 +1097,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2D237FBC28440B35001C35BB /* XCRemoteSwiftPackageReference "Swime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sendyhalim/Swime";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		2D47E204282EB9CD00AE258E /* XCRemoteSwiftPackageReference "swift-crypto" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-crypto.git";
@@ -1084,6 +1124,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2D237FBD28440B35001C35BB /* Swime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D237FBC28440B35001C35BB /* XCRemoteSwiftPackageReference "Swime" */;
+			productName = Swime;
+		};
 		2D47E20A282EBA5100AE258E /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2D47E209282EBA5100AE258E /* XCRemoteSwiftPackageReference "CryptoSwift" */;

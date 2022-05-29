@@ -41,7 +41,7 @@
                                         <action selector="editButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="1Gv-PQ-bHN"/>
                                     </connections>
                                 </button>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dW5-e2-yAD">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dW5-e2-yAD">
                                     <rect key="frame" x="147" y="20" width="120" height="120"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -318,11 +318,11 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="doc.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="lock.doc.fill" catalog="system" width="115" height="128"/>
-        <image name="network" catalog="system" width="128" height="121"/>
+        <image name="arrow.down.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="arrow.up.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="doc.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="lock.doc.fill" catalog="system" width="32" height="32"/>
+        <image name="network" catalog="system" width="32" height="32"/>
         <namedColor name="#2F385D">
             <color red="0.18431372549019609" green="0.2196078431372549" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

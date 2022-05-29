@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MemberTableViewCell: UITableViewCell {
     
@@ -25,6 +26,7 @@ class MemberTableViewCell: UITableViewCell {
     
     func configure(model: User) {
         nameLabel.text = model.name
+        avatarImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         avatarImageView.sd_setImage(with: URL(string: model.avatarUrl), placeholderImage: UIImage(named: Constants.userPlacehoderImageName))
     }
     

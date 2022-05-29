@@ -68,5 +68,52 @@ extension UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func showPickMediaBootomSheet(libraryAction: @escaping () -> Void, cameraAction: (() -> Void)? = nil, documentsAction: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: "Pick media source", message: nil, preferredStyle: UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
+        let libraryAction = UIAlertAction(title: "Library", style: .default) { _ in
+            libraryAction()
+        }
+
+        let cameraPickerAction = UIAlertAction(title: "Camera", style: .default) { _ in
+            cameraAction?()
+        }
+
+        let fileAction = UIAlertAction(title: "Documents", style: .default) { _ in
+            documentsAction?()
+        }
+
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alert.addAction(libraryAction)
+        if cameraAction != nil {
+            alert.addAction(cameraPickerAction)
+        }
+        
+        if documentsAction != nil {
+            alert.addAction(fileAction)
+        }
+        alert.addAction(cancel)
+        alert.view.tintColor = UIColor(named: "AppRedColor(#FF2828)")
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showLibrary(sourceType: UIImagePickerController.SourceType = .photoLibrary, delegate: (UIImagePickerControllerDelegate & UINavigationControllerDelegate)?) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: imagePicker.sourceType) ?? []
+        if sourceType == .camera {
+            #if targetEnvironment(simulator)
+            imagePicker.sourceType = .photoLibrary
+            #else
+            imagePicker.sourceType = .camera
+            #endif
+        } else {
+            imagePicker.sourceType = sourceType
+        }
+        imagePicker.allowsEditing = false
+        imagePicker.delegate = delegate
+        imagePicker.modalPresentationStyle = .fullScreen
+
+        present(imagePicker, animated: true)
+    }
 }
 

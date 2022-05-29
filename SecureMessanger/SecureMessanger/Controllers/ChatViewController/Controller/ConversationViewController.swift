@@ -9,6 +9,8 @@ import UIKit
 import MessageKit
 import MBProgressHUD
 import SDWebImage
+import AVKit
+
  
 class ConversationViewController: MessagesViewController {
         
@@ -198,6 +200,21 @@ class ConversationViewController: MessagesViewController {
         vc.user = user
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    private func showVideoPlayer(for url: URL) {
+        let player = AVPlayer(url: url)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        navigationController?.pushViewController(playerViewController, animated: true)
+    }
+    
+    private func showZoomImageVC(image: UIImage) {
+        let vc = ZoomImageViewController()
+        vc.image = image
+        navigationController?.present(vc, animated: true)
+    }
+    
+    
 
 
 }
@@ -265,6 +282,30 @@ extension ConversationViewController: MessagesDisplayDelegate {
                     avatarView.image = image
                 }
             }
+        }
+    }
+    
+    func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        switch message.kind {
+        case .photo(let photoItem):
+            guard let url = photoItem.url else {
+                return
+            }
+            imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imageView.sd_setImage(with: url, placeholderImage: nil)
+        case .video(let videoItem):
+            guard let url = (videoItem as? ImageMediaItem)?.url  else {
+                return
+            }
+            AVAsset(url: url).generateThumbnail { (image) in
+                DispatchQueue.main.async {
+                    imageView.contentMode = .scaleAspectFit
+                    imageView.image = image
+                }
+            }
+            
+        default:
+            break
         }
     }
     
@@ -354,7 +395,27 @@ extension ConversationViewController: MessageCellDelegate {
     }
 
     func didTapImage(in cell: MessageCollectionViewCell) {
-        
+
+        if let indexPath = messagesCollectionView.indexPath(for: cell) {
+            let message = messageList[indexPath.section]
+
+            switch message.kind {
+            case .video(let videoItem):
+                if let videoUrl = videoItem.url {
+                    showVideoPlayer(for: videoUrl)
+                }
+            case .photo(let photoItem):
+                let imageView = UIImageView()
+                let progress = MBProgressHUD.showAdded(to: view, animated: true)
+                imageView.sd_setImage(with: photoItem.url) { [weak self] image, error, _, _ in
+                    progress.hide(animated: true)
+                    guard let image = image else { return }
+                    self?.showZoomImageVC(image: image)
+                }
+            default:
+                break
+            }
+        }
     }
     
 }

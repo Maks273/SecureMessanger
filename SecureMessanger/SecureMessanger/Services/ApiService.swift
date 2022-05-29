@@ -526,4 +526,40 @@ class ApiService {
             }
         }
     }
+    
+    func uploadPublicMedia(model: UploadFileRequest, completion: @escaping (_ fileId: Int?, _ error: Error?) -> Void) {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+        
+        let dict = model.dict
+        
+        AF.request(baseURL.appending("\(hash)/\(udid)/files/public/upload"), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: ["access-token": headerAccessToken]).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                if let dict = result as? [String: Any], let dict = dict["data"] as? [String: Any] {
+                    print(dict)
+                    let item = try? DictionaryDecoder.shared.decode(File.self, from: dict)
+                    completion(item?.id, nil)
+                }else {
+                    completion(nil, ApiErrors.unavailableDecode)
+                }
+            case .failure(let error):
+                var newError: Error?
+                if let data = response.data, let message = String(data: data, encoding: .utf8) {
+                    newError = ApiErrors(message: message)
+                }
+                completion(nil, newError != nil ? newError : error.underlyingError)
+            }
+        }
+        
+        
+    }
+    
+    func getDownloadFile(fileId: Int) -> String {
+        guard let hash = CredentialManager.sharedInstance.currentUser?.hash else { return "" }
+
+        let udid = UIDevice.current.identifierForVendor!.uuidString.sha256()
+        return baseURL.appending("\(hash)/\(udid)/files/public/download/\(fileId)")
+    }
 }
